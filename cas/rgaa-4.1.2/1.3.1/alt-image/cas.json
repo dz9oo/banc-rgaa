@@ -1,0 +1,28 @@
+{
+  "id": "1.3.1/alt-image",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.3.1",
+  "titre": "Alternative « image » pour un nombre",
+  "verdict": "non_conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'image affiche le nombre 12, qui n'est pas répété dans le texte. Une alternative est présente, le mot « image », mais elle ne reprend pas l'information. Le test 1.3.1 n'est pas validé. L'absence totale d'alternative serait le test 1.1.1, qui n'est pas jugé ici. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "places.svg"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "img",
+      "note": "Image qui affiche 12"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

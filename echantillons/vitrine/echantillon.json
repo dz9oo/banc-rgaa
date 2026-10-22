@@ -1,0 +1,278 @@
+{
+  "id": "vitrine",
+  "version": "4.1.2",
+  "titre": "Archives municipales, service fictif",
+  "pages": [
+    {
+      "id": "accueil",
+      "fichier": "pages/accueil.html",
+      "motifs": [
+        "page d'accueil"
+      ]
+    },
+    {
+      "id": "article",
+      "fichier": "pages/article.html",
+      "motifs": [
+        "page de contenu"
+      ]
+    },
+    {
+      "id": "contact",
+      "fichier": "pages/contact.html",
+      "motifs": [
+        "page contact"
+      ]
+    },
+    {
+      "id": "mentions",
+      "fichier": "pages/mentions-legales.html",
+      "motifs": [
+        "mentions légales"
+      ]
+    }
+  ],
+  "perimetre": [
+    "1.2",
+    "1.3",
+    "3.2",
+    "6.1",
+    "6.2",
+    "8.1",
+    "8.3",
+    "8.5",
+    "8.6",
+    "10.7",
+    "11.9"
+  ],
+  "releves": [
+    {
+      "page": "accueil",
+      "test": "6.2.1",
+      "verdict": "conforme",
+      "cas": "6.2.1/intitule-present",
+      "note": "Chaque lien a un intitulé dans son contenu."
+    },
+    {
+      "page": "accueil",
+      "test": "8.3.1",
+      "verdict": "conforme",
+      "cas": "8.3.1/langue-fr",
+      "note": "lang=\"fr\" sur html."
+    },
+    {
+      "page": "accueil",
+      "test": "8.5.1",
+      "verdict": "conforme",
+      "cas": "8.5.1/titre-present",
+      "note": "Un élément title est présent."
+    },
+    {
+      "page": "accueil",
+      "test": "8.6.1",
+      "verdict": "conforme",
+      "cas": "8.6.1/titre-service",
+      "note": "Le title nomme la page et le service, sur le modèle du cas."
+    },
+    {
+      "page": "accueil",
+      "test": "10.7.1",
+      "verdict": "conforme",
+      "cas": "10.7.1/focus-visible",
+      "note": "Même contour noir de 3 px sur fond blanc."
+    },
+    {
+      "page": "accueil",
+      "test": "11.9.1",
+      "verdict": "non_applicable",
+      "cas": "11.9.1/sans-bouton"
+    },
+    {
+      "page": "accueil",
+      "test": "11.9.2",
+      "verdict": "non_applicable",
+      "cas": "11.9.2/sans-bouton"
+    },
+    {
+      "page": "article",
+      "test": "6.2.1",
+      "verdict": "conforme",
+      "cas": "6.2.1/intitule-present",
+      "note": "Chaque lien a un intitulé dans son contenu."
+    },
+    {
+      "page": "article",
+      "test": "8.3.1",
+      "verdict": "conforme",
+      "cas": "8.3.1/langue-fr",
+      "note": "lang=\"fr\" sur html."
+    },
+    {
+      "page": "article",
+      "test": "8.5.1",
+      "verdict": "conforme",
+      "cas": "8.5.1/titre-present",
+      "note": "Un élément title est présent."
+    },
+    {
+      "page": "article",
+      "test": "8.6.1",
+      "verdict": "conforme",
+      "cas": "8.6.1/titre-service",
+      "note": "Le title nomme la page et le service, sur le modèle du cas."
+    },
+    {
+      "page": "article",
+      "test": "10.7.1",
+      "verdict": "conforme",
+      "cas": "10.7.1/focus-visible",
+      "note": "Même contour noir de 3 px sur fond blanc."
+    },
+    {
+      "page": "article",
+      "test": "11.9.1",
+      "verdict": "non_applicable",
+      "cas": "11.9.1/sans-bouton"
+    },
+    {
+      "page": "article",
+      "test": "11.9.2",
+      "verdict": "non_applicable",
+      "cas": "11.9.2/sans-bouton"
+    },
+    {
+      "page": "contact",
+      "test": "6.2.1",
+      "verdict": "conforme",
+      "cas": "6.2.1/intitule-present",
+      "note": "Chaque lien a un intitulé dans son contenu."
+    },
+    {
+      "page": "contact",
+      "test": "8.3.1",
+      "verdict": "conforme",
+      "cas": "8.3.1/langue-fr",
+      "note": "lang=\"fr\" sur html."
+    },
+    {
+      "page": "contact",
+      "test": "8.5.1",
+      "verdict": "conforme",
+      "cas": "8.5.1/titre-present",
+      "note": "Un élément title est présent."
+    },
+    {
+      "page": "contact",
+      "test": "8.6.1",
+      "verdict": "conforme",
+      "cas": "8.6.1/titre-service",
+      "note": "Le title nomme la page et le service, sur le modèle du cas."
+    },
+    {
+      "page": "contact",
+      "test": "10.7.1",
+      "verdict": "conforme",
+      "cas": "10.7.1/focus-visible",
+      "note": "Même contour noir de 3 px sur fond blanc."
+    },
+    {
+      "page": "contact",
+      "test": "11.9.1",
+      "verdict": "conforme",
+      "cas": "11.9.1/envoyer-le-message"
+    },
+    {
+      "page": "contact",
+      "test": "11.9.2",
+      "verdict": "conforme",
+      "cas": "11.9.2/nom-contient-visible"
+    },
+    {
+      "page": "mentions",
+      "test": "6.2.1",
+      "verdict": "conforme",
+      "cas": "6.2.1/intitule-present",
+      "note": "Chaque lien a un intitulé dans son contenu."
+    },
+    {
+      "page": "mentions",
+      "test": "8.3.1",
+      "verdict": "conforme",
+      "cas": "8.3.1/langue-fr",
+      "note": "lang=\"fr\" sur html."
+    },
+    {
+      "page": "mentions",
+      "test": "8.5.1",
+      "verdict": "conforme",
+      "cas": "8.5.1/titre-present",
+      "note": "Un élément title est présent."
+    },
+    {
+      "page": "mentions",
+      "test": "8.6.1",
+      "verdict": "conforme",
+      "cas": "8.6.1/titre-service",
+      "note": "Le title nomme la page et le service, sur le modèle du cas."
+    },
+    {
+      "page": "mentions",
+      "test": "10.7.1",
+      "verdict": "conforme",
+      "cas": "10.7.1/focus-visible",
+      "note": "Même contour noir de 3 px sur fond blanc."
+    },
+    {
+      "page": "mentions",
+      "test": "11.9.1",
+      "verdict": "non_applicable",
+      "cas": "11.9.1/sans-bouton"
+    },
+    {
+      "page": "mentions",
+      "test": "11.9.2",
+      "verdict": "non_applicable",
+      "cas": "11.9.2/sans-bouton"
+    }
+  ],
+  "criteres": [
+    {
+      "id": "6.2",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    },
+    {
+      "id": "8.3",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    },
+    {
+      "id": "8.5",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    },
+    {
+      "id": "8.6",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    },
+    {
+      "id": "10.7",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    },
+    {
+      "id": "11.9",
+      "verdict": "conforme",
+      "couvert": true,
+      "motif": "Tous les tests de ce critère ont un relevé sur chaque page."
+    }
+  ],
+  "taux": null,
+  "taux_motif": "Le taux n'est pas publié. Critères applicables encore ouverts : 1.2, 1.3, 3.2, 6.1, 8.1."
+}

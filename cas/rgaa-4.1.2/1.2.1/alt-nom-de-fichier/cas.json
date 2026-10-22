@@ -1,0 +1,31 @@
+{
+  "id": "1.2.1/alt-nom-de-fichier",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.2.1",
+  "titre": "Filet décoratif dont l'alt est un nom de fichier",
+  "verdict": "non_conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'image est le même filet, sans information et sans légende. alt vaut « filet.png », et l'image n'a ni aria-hidden ni role=\"presentation\". Le test 1.2.1 n'est pas validé : l'image décorative n'est pas ignorée. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "filet.svg"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "img",
+      "note": "Même filet, alt renseigné"
+    }
+  ],
+  "pieges": [
+    "Un alt non vide sur une image décorative expose un texte inutile aux technologies d'assistance."
+  ],
+  "relecture": "2026-10-22"
+}

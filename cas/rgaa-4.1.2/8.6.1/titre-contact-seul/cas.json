@@ -1,0 +1,31 @@
+{
+  "id": "8.6.1/titre-contact-seul",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.6.1",
+  "titre": "Title « Contact » sans nom de service",
+  "verdict": "non_tranche",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'élément title vaut « Contact » sur la page de contact. Le test 8.6.1 demande un titre assez pertinent pour retrouver la page dans l'historique ou les onglets. Une lecture s'arrête à la nature de la page, l'autre exige le nom du service. Les deux restent défendables. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.6.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "desaccords": [
+    {
+      "lecture": "Contact nomme la page",
+      "motif": "« Contact » identifie la nature de la page. Dans une liste d'onglets du même site, on retrouve cette page parmi d'autres titres."
+    },
+    {
+      "lecture": "Le nom du service manque",
+      "motif": "Un titre utile distingue aussi le service. « Contact » seul se confond avec l'onglet d'un autre site dans l'historique. L'exemple du glossaire associe la nature de la page et le nom du site."
+    }
+  ],
+  "relecture": "2026-10-22"
+}

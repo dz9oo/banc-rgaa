@@ -1,0 +1,27 @@
+{
+  "id": "4.13.1/lecteur-audio",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "4.13.1",
+  "titre": "Lecteur audio, restitution non encore passée",
+  "verdict": "non_conforme",
+  "nature": "restitution",
+  "modalites": [
+    "html",
+    "transcription"
+  ],
+  "motif": "La page contient un élément audio avec des contrôles. Le test 4.13.1 demande que le nom, le rôle, la valeur et les changements d'état soient accessibles à une technologie d'assistance, ou qu'une alternative le soit. Aucune passe réelle n'a été faite. Le cas reste brouillon et le verdict ne sert pas de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#4.13.1",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html",
+    "silence.wav",
+    "transcription.txt"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Une transcription inventée ne doit pas passer au statut revu."
+  ],
+  "note": "Le verdict indiqué est un placeholder de brouillon. Il ne compte pas. La transcription contient EXEMPLE."
+}

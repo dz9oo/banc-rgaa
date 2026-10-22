@@ -1,0 +1,27 @@
+{
+  "id": "3.2.1/contraste-insuffisant",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.1",
+  "titre": "Texte gris #777777 sur fond blanc",
+  "verdict": "non_conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul texte fait 16 px, graisse 400, couleur #777777 sur fond #ffffff déclaré sur le même élément. Le rapport de ces deux couleurs est 4,48:1, sous le seuil de 4,5:1 du test 3.2.1. Aucun mécanisme ne propose un autre contraste. Le test n'est pas validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "p",
+      "note": "Seul texte de la page"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dz9oo/banc-rgaa/schema/echantillon.schema.json",
+  "title": "Échantillon",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "titre", "pages", "perimetre", "releves", "criteres", "taux", "taux_motif"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "const": "4.1.2" },
+    "titre": { "type": "string" },
+    "pages": { "type": "array" },
+    "perimetre": { "type": "array", "items": { "type": "string" } },
+    "releves": { "type": "array" },
+    "criteres": { "type": "array" },
+    "taux": { "type": ["number", "null"] },
+    "taux_motif": { "type": "string" }
+  }
+}

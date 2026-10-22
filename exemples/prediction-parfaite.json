@@ -1,0 +1,138 @@
+{
+  "outil": "lecture-parfaite",
+  "date": "2026-10-22",
+  "predictions": [
+    {
+      "cas": "1.2.1/alt-nom-de-fichier",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "1.2.1/alt-vide",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "1.3.1/alt-image",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "1.3.1/alt-pertinent",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "3.2.1/contraste-insuffisant",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "3.2.1/contraste-suffisant",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "3.2.1/texte-en-image",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "6.1.1/cliquez-ici",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "6.1.1/cliquez-ici-dans-la-phrase",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "6.1.1/contacter-le-service",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "6.1.1/lire-la-suite-seul",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "6.1.1/lire-la-suite-sous-article",
+      "verdict": "non_tranche"
+    },
+    {
+      "cas": "6.1.1/lire-la-suite-sous-horaires",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "6.1.1/mentions-legales",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "6.2.1/intitule-present",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "6.2.1/lien-vide",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "8.1.1/doctype-absent",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "8.1.1/doctype-html",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "8.3.1/langue-absente",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "8.3.1/langue-fr",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "8.5.1/titre-absent",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "8.5.1/titre-present",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "8.6.1/titre-bienvenue",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "8.6.1/titre-contact-seul",
+      "verdict": "non_tranche"
+    },
+    {
+      "cas": "8.6.1/titre-service",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "10.7.1/focus-absent",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "10.7.1/focus-visible",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "11.9.1/bouton-ok",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "11.9.1/envoyer-le-message",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "11.9.1/sans-bouton",
+      "verdict": "non_applicable"
+    },
+    {
+      "cas": "11.9.2/nom-contient-visible",
+      "verdict": "conforme"
+    },
+    {
+      "cas": "11.9.2/nom-remplace-visible",
+      "verdict": "non_conforme"
+    },
+    {
+      "cas": "11.9.2/sans-bouton",
+      "verdict": "non_applicable"
+    }
+  ]
+}

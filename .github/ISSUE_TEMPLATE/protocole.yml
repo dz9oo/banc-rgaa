@@ -1,0 +1,20 @@
+name: Proposer un protocole
+description: La carte de vérification d'un test encore sans protocole.
+title: "Protocole : "
+labels: ["protocole"]
+body:
+  - type: input
+    id: test
+    attributes:
+      label: Test
+      description: Identifiant du test, par exemple 10.7.1.
+      placeholder: "10.7.1"
+    validations:
+      required: true
+  - type: textarea
+    id: ecart
+    attributes:
+      label: Ce que la carte doit éclairer
+      description: Ce qu'une machine peut établir, ce qu'une personne tranche, et le piège le plus fréquent.
+    validations:
+      required: true

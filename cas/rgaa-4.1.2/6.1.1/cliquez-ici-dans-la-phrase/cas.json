@@ -1,0 +1,30 @@
+{
+  "id": "6.1.1/cliquez-ici-dans-la-phrase",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.1",
+  "titre": "« cliquez ici » dans une phrase qui dit la destination",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le lien texte « cliquez ici » est dans la phrase « Pour écrire au service, cliquez ici ». La phrase est un contexte admis : elle dit que le lien sert à écrire au service. Le test 6.1.1 est donc validé par le contexte, même si l'intitulé seul ne suffirait pas. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Lien dans la phrase"
+    }
+  ],
+  "pieges": [
+    "Interdire l'expression « cliquez ici » sans lire la phrase produit un faux échec lorsque la phrase porte la destination."
+  ],
+  "relecture": "2026-10-22"
+}

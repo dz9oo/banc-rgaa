@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dz9oo/banc-rgaa/schema/cas.schema.json",
+  "title": "Cas",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "referentiel",
+    "version",
+    "test",
+    "titre",
+    "verdict",
+    "nature",
+    "modalites",
+    "motif",
+    "methode",
+    "statut",
+    "fichiers",
+    "licence",
+    "origine"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+/[a-z0-9-]{3,48}$" },
+    "referentiel": { "const": "RGAA" },
+    "version": { "const": "4.1.2" },
+    "test": { "type": "string" },
+    "titre": { "type": "string", "minLength": 8, "maxLength": 140 },
+    "verdict": { "enum": ["conforme", "non_conforme", "non_applicable", "non_tranche"] },
+    "nature": { "enum": ["deterministe", "pertinence", "vision", "restitution", "geste", "document"] },
+    "modalites": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["html", "capture", "transcription", "interaction", "document"] }
+    },
+    "motif": { "type": "string", "minLength": 80, "maxLength": 2000 },
+    "methode": { "type": "string", "format": "uri" },
+    "statut": { "enum": ["brouillon", "revu"] },
+    "fichiers": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "licence": { "enum": ["etalab-2.0", "w3c-document"] },
+    "origine": { "type": "string" },
+    "cibles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["selecteur", "note"],
+        "properties": {
+          "selecteur": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "environnement": { "type": "object" },
+    "pieges": { "type": "array", "items": { "type": "string", "minLength": 20 } },
+    "desaccords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lecture", "motif"],
+        "properties": {
+          "lecture": { "type": "string" },
+          "motif": { "type": "string", "minLength": 40 }
+        }
+      }
+    },
+    "relecture": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "note": { "type": "string" }
+  }
+}

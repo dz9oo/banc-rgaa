@@ -1,0 +1,21 @@
+{
+  "id": "8.5.1/titre-absent",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.5.1",
+  "titre": "Élément title absent",
+  "verdict": "non_conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le document n'a pas d'élément title. Le h1 visible n'est pas un titre de page. Le test 8.5.1 demande un title. Il est absent, donc le test est non conforme. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.5.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

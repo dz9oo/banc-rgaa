@@ -1,0 +1,21 @@
+{
+  "id": "8.3.1/langue-fr",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.3.1",
+  "titre": "Langue française indiquée sur html",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'élément html porte lang=\"fr\" et la page contient un paragraphe. Le test 8.3.1 demande une indication de langue par défaut. Pour un document HTML, l'attribut lang sur html répond à cette demande. La pertinence du code de langue est un autre test. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.3.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

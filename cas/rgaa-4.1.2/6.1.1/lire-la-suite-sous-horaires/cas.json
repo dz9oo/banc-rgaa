@@ -1,0 +1,27 @@
+{
+  "id": "6.1.1/lire-la-suite-sous-horaires",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.1",
+  "titre": "« Lire la suite » sous le titre des horaires",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le lien « Lire la suite » suit immédiatement le titre « Horaires d'ouverture ». Le titre précédent est un contexte admis, et il nomme la destination. La combinaison fait comprendre que le lien mène aux horaires. Le test 6.1.1 est validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Lien qui suit le titre"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

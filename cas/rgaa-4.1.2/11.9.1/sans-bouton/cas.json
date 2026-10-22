@@ -1,0 +1,21 @@
+{
+  "id": "11.9.1/sans-bouton",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "11.9.1",
+  "titre": "Page sans bouton de formulaire",
+  "verdict": "non_applicable",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page ne contient ni formulaire ni bouton. Le test 11.9.1 cherche les boutons présents au sein d'un formulaire. Il n'y en a pas : le test est non applicable. Une validation à vide n'est pas retenue, parce que le critère porte sur des boutons qui existent. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#11.9.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

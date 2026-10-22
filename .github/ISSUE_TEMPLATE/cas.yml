@@ -1,0 +1,55 @@
+name: Proposer un cas
+description: Une page minimale et un verdict pour un test du RGAA 4.1.2.
+title: "Cas : "
+labels: ["cas"]
+body:
+  - type: input
+    id: test
+    attributes:
+      label: Test
+      description: Identifiant du test, par exemple 6.1.1.
+      placeholder: "6.1.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: nature
+    attributes:
+      label: Nature
+      options:
+        - deterministe
+        - pertinence
+        - vision
+        - geste
+        - restitution
+        - document
+    validations:
+      required: true
+  - type: dropdown
+    id: camp
+    attributes:
+      label: Camp
+      options:
+        - conforme
+        - non_conforme
+        - non_applicable
+        - deux lectures, non tranché
+    validations:
+      required: true
+  - type: dropdown
+    id: piece
+    attributes:
+      label: Pièce principale
+      options:
+        - page HTML
+        - capture
+        - transcription
+        - document
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation
+      description: Décrire la page minimale, sans donnée personnelle et sans copie d'un site réel.
+    validations:
+      required: true

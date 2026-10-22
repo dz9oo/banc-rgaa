@@ -1,0 +1,28 @@
+{
+  "id": "1.2.1/alt-vide",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.2.1",
+  "titre": "Filet décoratif avec alt vide",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'image est un filet de séparation. Le paragraphe se comprend sans elle : elle ne porte pas d'information. Elle n'a pas de légende, pas de title, pas d'aria-label ni d'aria-labelledby, et alt est vide. Le test 1.2.1 est validé pour cette image décorative. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "filet.svg"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "img",
+      "note": "Filet de séparation"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dz9oo/banc-rgaa/schema/protocole.schema.json",
+  "title": "Front matter d'un protocole",
+  "description": "Le fichier est un Markdown. Ce schéma décrit le front matter YAML, plat, entre deux lignes ---.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["test", "version", "nature", "methode", "machine", "personne"],
+  "properties": {
+    "test": { "type": "string" },
+    "version": { "const": "4.1.2" },
+    "nature": { "enum": ["deterministe", "pertinence", "vision", "restitution", "geste", "document"] },
+    "methode": { "type": "string" },
+    "machine": { "type": "string", "minLength": 40 },
+    "personne": { "type": "string", "minLength": 40 }
+  }
+}

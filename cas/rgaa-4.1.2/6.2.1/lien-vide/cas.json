@@ -1,0 +1,30 @@
+{
+  "id": "6.2.1/lien-vide",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.2.1",
+  "titre": "Lien sans contenu",
+  "verdict": "non_conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul lien est un élément a sans texte et sans alternative dans son contenu. Un contour CSS le rend visible à l'écran. Ce contour n'est pas un intitulé. Le test 6.2.1 demande un intitulé dans le contenu de l'élément. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Lien vide, contour CSS seulement"
+    }
+  ],
+  "pieges": [
+    "Un contour CSS rend le lien visible. Il ne constitue pas l'intitulé demandé dans le contenu de l'élément."
+  ],
+  "relecture": "2026-10-22"
+}

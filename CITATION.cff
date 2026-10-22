@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Banc d'essai RGAA"
+message: "Si vous utilisez ce banc, citez-le."
+type: dataset
+authors:
+  - name: "Contributeurs du dépôt banc-rgaa"
+repository-code: "https://github.com/dz9oo/banc-rgaa"
+url: "https://github.com/dz9oo/banc-rgaa"
+abstract: >-
+  Cas figés, protocoles et échantillon pour évaluer un audit au RGAA 4.1.2.
+  Les verdicts revus sont des lectures contributives reliées à la méthode officielle.
+keywords:
+  - rgaa
+  - accessibilite
+  - wcag
+  - audit
+license: etalab-2.0

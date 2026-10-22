@@ -1,0 +1,21 @@
+{
+  "id": "8.3.1/langue-absente",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.3.1",
+  "titre": "Aucune indication de langue",
+  "verdict": "non_conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Ni html ni le paragraphe ne portent lang ou xml:lang. Le test 8.3.1 demande une indication de langue par défaut, sur html pour le HTML, ou à défaut sur chaque passage de texte. La page contient un paragraphe. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.3.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

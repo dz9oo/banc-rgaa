@@ -1,0 +1,35 @@
+{
+  "id": "10.7.1/focus-visible",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "10.7.1",
+  "titre": "Indicateur de focus noir de 3 px",
+  "verdict": "conforme",
+  "nature": "geste",
+  "modalites": [
+    "html",
+    "capture",
+    "interaction"
+  ],
+  "motif": "Le lien a le focus au chargement. L'indicateur est un contour noir de 3 px, décalé de 2 px, sur fond blanc. Le rapport du noir sur le blanc est 21:1, au-dessus de 3:1. La capture montre cet état. Le test 10.7.1 demande un indicateur visuel de prise de focus, sur le contour ou le fond, suffisamment contrasté. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.7.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "capture.png"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Lien focalisé au chargement"
+    }
+  ],
+  "environnement": {
+    "navigateur": "Chromium 154.0.8037.97 Arch Linux",
+    "viewport": "1280×720",
+    "zoom": "100 %"
+  },
+  "relecture": "2026-10-22"
+}

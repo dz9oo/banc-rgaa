@@ -1,0 +1,30 @@
+{
+  "id": "6.1.1/cliquez-ici",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.1",
+  "titre": "Lien texte « cliquez ici » seul",
+  "verdict": "non_conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul lien texte a pour contenu « cliquez ici ». Aucune phrase, aucun paragraphe voisin et aucun titre précédent ne disent la destination. Le test 6.1.1 demande que la fonction et la destination se comprennent par l'intitulé seul ou par un contexte. Ici, ni l'un ni l'autre. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Seul lien, sans titre précédent"
+    }
+  ],
+  "pieges": [
+    "La présence d'un href ne rend pas l'intitulé explicite."
+  ],
+  "relecture": "2026-10-22"
+}

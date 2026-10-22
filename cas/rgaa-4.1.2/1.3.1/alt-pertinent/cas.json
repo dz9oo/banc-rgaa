@@ -1,0 +1,28 @@
+{
+  "id": "1.3.1/alt-pertinent",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.3.1",
+  "titre": "Alternative qui reprend le nombre affiché",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'image affiche le nombre 12 et le texte de la page ne le répète pas. L'alternative « 12 places disponibles » reprend cette information. Le test 1.3.1, qui vérifie la pertinence d'une alternative déjà présente, est validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "places.svg"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "img",
+      "note": "Image qui affiche 12"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

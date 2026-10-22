@@ -1,0 +1,21 @@
+{
+  "id": "11.9.2/sans-bouton",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "11.9.2",
+  "titre": "Page sans bouton, test du nom accessible",
+  "verdict": "non_applicable",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page ne contient ni formulaire ni bouton. Le test 11.9.2 cherche les boutons d'un formulaire pour comparer le nom accessible et l'intitulé visible. Il n'y en a pas : le test est non applicable. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#11.9.2",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

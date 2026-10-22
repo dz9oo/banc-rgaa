@@ -1,0 +1,30 @@
+{
+  "id": "11.9.2/nom-remplace-visible",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "11.9.2",
+  "titre": "aria-label qui ne contient pas le texte visible",
+  "verdict": "non_conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le bouton affiche « Envoyer le message » et porte aria-label=\"Valider\". Le nom accessible est « Valider », qui ne contient pas l'intitulé visible. Le test 11.9.2 n'est pas validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#11.9.2",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "button",
+      "note": "Texte visible et aria-label divergents"
+    }
+  ],
+  "pieges": [
+    "Un aria-label remplace le texte visible dans le nom accessible. Le texte peut rester pertinent pendant que le test 11.9.2 échoue."
+  ],
+  "relecture": "2026-10-22"
+}

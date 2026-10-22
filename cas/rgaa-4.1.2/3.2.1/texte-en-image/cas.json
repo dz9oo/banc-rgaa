@@ -1,0 +1,32 @@
+{
+  "id": "3.2.1/texte-en-image",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.1",
+  "titre": "Texte peint dans une image, contraste insuffisant",
+  "verdict": "non_conforme",
+  "nature": "vision",
+  "modalites": [
+    "html",
+    "capture"
+  ],
+  "motif": "Le seul texte visible est peint dans texte.png : #b4b4b4 sur #ffffff, 16 px, graisse 400, rapport 2,07:1. La page HTML ne déclare pas ces couleurs. La capture montre le rendu. Le test 3.2.1 inclut le texte en image sous 24 px sans graisse. Le seuil 4,5:1 n'est pas atteint. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html",
+    "texte.png",
+    "capture.png"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "environnement": {
+    "navigateur": "Chromium 154.0.8037.97 Arch Linux",
+    "viewport": "1280×720",
+    "zoom": "100 %"
+  },
+  "pieges": [
+    "Lire seulement les couleurs CSS rate ce cas : le texte jugé est dans les pixels de l'image."
+  ],
+  "relecture": "2026-10-22"
+}

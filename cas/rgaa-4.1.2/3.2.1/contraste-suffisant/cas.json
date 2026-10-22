@@ -1,0 +1,30 @@
+{
+  "id": "3.2.1/contraste-suffisant",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.1",
+  "titre": "Texte #333333 sur fond blanc",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul texte fait 16 px, graisse 400, couleur #333333 sur fond #ffffff déclaré sur le même élément. Le rapport est 12,63:1, au-dessus de 4,5:1. Il n'y a pas de texte en image. Le test 3.2.1, qui porte sur le texte sans graisse de moins de 24 px, est validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "p",
+      "note": "Seul texte de la page"
+    }
+  ],
+  "pieges": [
+    "Un fond uni posé sur le même élément se calcule. Un texte peint dans une image ne se voit pas dans la feuille de style."
+  ],
+  "relecture": "2026-10-22"
+}

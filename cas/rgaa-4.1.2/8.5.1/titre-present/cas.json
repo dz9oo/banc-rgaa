@@ -1,0 +1,21 @@
+{
+  "id": "8.5.1/titre-present",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.5.1",
+  "titre": "Élément title présent",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le document contient un élément title dont le texte est « Accueil du service ». Le test 8.5.1 se valide lorsque cet élément est présent. La pertinence du libellé relève du test 8.6.1, qui n'est pas jugé ici. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.5.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}

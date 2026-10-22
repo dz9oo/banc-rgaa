@@ -1,0 +1,27 @@
+{
+  "id": "11.9.1/bouton-ok",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "11.9.1",
+  "titre": "Bouton « OK » pour envoyer un message",
+  "verdict": "non_conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le formulaire sert à envoyer un message. Le bouton visible porte « OK », sans autre nom. Cet intitulé ne décrit pas l'action produite par l'activation. Le test 11.9.1 n'est pas validé. Le test 11.9.2, qui compare le nom accessible au texte visible, n'est pas jugé ici. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#11.9.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "button",
+      "note": "Bouton dont l'intitulé est OK"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "6.1.1/contacter-le-service",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.1",
+  "titre": "Intitulé « Contacter le service »",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul lien texte a pour contenu « Contacter le service ». L'intitulé seul dit la fonction et la destination. Le test 6.1.1 est validé sans avoir besoin du contexte. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Lien vers le contact"
+    }
+  ],
+  "relecture": "2026-10-22"
+}

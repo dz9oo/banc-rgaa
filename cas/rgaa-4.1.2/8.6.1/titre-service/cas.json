@@ -1,0 +1,21 @@
+{
+  "id": "8.6.1/titre-service",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.6.1",
+  "titre": "Title qui nomme la page et le service",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'élément title vaut « Contact — Archives municipales » sur une page dont le h1 est « Contact ». On retrouve cette page dans une liste d'onglets : le titre dit la page et le service. Le test 8.6.1 est validé. Relecture sur la page du test le 22 octobre 2026.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.6.1",
+  "statut": "revu",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "relecture": "2026-10-22"
+}
