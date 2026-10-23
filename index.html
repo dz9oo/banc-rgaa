@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<!--
+  Modèle de la page vitrine. Les marques sont remplies par outils/vitrine.py.
+  La page servie est index.html, à la racine. Ne pas l'éditer à la main.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banc d’essai RGAA</title>
+<style>
+@font-face {
+  font-family: "Noto Serif Display";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("polices/NotoSerifDisplay-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("polices/NotoSans-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("polices/NotoSans-Bold.woff2") format("woff2");
+}
+:root {
+  --encre: #1a1916;
+  --second: #3f3b36;
+  --papier: #f6f5f2;
+  --blanc: #ffffff;
+  --accent: #1d4a38;
+  --filet: rgba(26, 25, 22, 0.12);
+  --ombre: 0 1px 2px rgba(26, 25, 22, 0.04), 0 16px 40px rgba(26, 25, 22, 0.06);
+  --sans: "Noto Sans", "Liberation Sans", "Segoe UI", sans-serif;
+  --serif: "Noto Serif Display", "Noto Serif", "Liberation Serif", serif;
+  --mono: "Liberation Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+@media (max-width: 720px) { html { scroll-padding-top: 9rem; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .portes a, button { transition: none; }
+  .portes a:hover { transform: none; }
+}
+body {
+  margin: 0;
+  color: var(--encre);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  background:
+    radial-gradient(900px 420px at 0% -10%, #e5efe8 0%, transparent 60%),
+    radial-gradient(800px 380px at 100% 0%, #f3eadc 0%, transparent 55%),
+    var(--papier);
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus, button:focus, input:focus {
+  outline: 3px solid var(--encre);
+  outline-offset: 3px;
+}
+.evitement {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  background: var(--encre);
+  color: var(--papier);
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  z-index: 10;
+}
+.evitement:focus { top: 0.75rem; color: var(--papier); }
+.barre {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 0.85rem 1.5rem;
+  background: rgba(246, 245, 242, 0.9);
+  border-bottom: 1px solid var(--filet);
+  backdrop-filter: blur(14px);
+}
+.marque {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--encre);
+  text-decoration: none;
+}
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; }
+.site-nav a {
+  color: var(--second);
+  text-decoration: none;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+body:has(#auditer:target) a[href="#auditer"],
+body:has(#mesurer:target) a[href="#mesurer"],
+body:has(#comprendre:target) a[href="#comprendre"],
+body:not(:has(.vue:target)) a[href="#accueil"] {
+  color: var(--encre);
+  border-bottom-color: var(--accent);
+}
+.note {
+  margin: 0;
+  padding: 0.45rem 1.5rem 0;
+  color: var(--second);
+  font-size: 0.92rem;
+}
+main { max-width: 72rem; margin: 0 auto; padding: 2.2rem 1.5rem 4rem; }
+h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.7rem, 6vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0.2rem 0 0.8rem;
+  text-wrap: balance;
+}
+h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 2.8rem 0 0.7rem;
+  text-wrap: balance;
+}
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin: 1.8rem 0 0.45rem;
+  text-wrap: balance;
+}
+.surtitre {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.limite, .texte { max-width: 40rem; }
+.limite { font-size: 1.28rem; line-height: 1.45; }
+.vue { display: none; }
+.vue:target { display: block; }
+#accueil, .vue, h2, h3 { scroll-margin-top: 5.5rem; }
+@media (max-width: 720px) {
+  #accueil, .vue, h2, h3 { scroll-margin-top: 9rem; }
+}
+body:has(.vue:target) #accueil { display: none; }
+.retour {
+  display: inline-flex;
+  margin: 0 0 0.4rem;
+  color: var(--second);
+  text-decoration: none;
+  border-bottom: 1px solid var(--filet);
+}
+.faits, .pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0 0;
+}
+.faits li, .pastilles li { flex: 1 1 11rem; }
+.faits li, .pastilles li, .etat {
+  background: var(--blanc);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  box-shadow: var(--ombre);
+}
+.faits strong, .pastilles strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.portes {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 860px) { .portes { grid-template-columns: 1fr; } }
+.portes a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 17rem;
+  padding: 1.4rem 1.35rem 1.25rem;
+  background: var(--blanc);
+  color: var(--encre);
+  text-decoration: none;
+  border-radius: 1.5rem;
+  box-shadow: var(--ombre);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.portes li:nth-child(2) a { background: #eef3ef; }
+.portes li:nth-child(3) a { background: #f7f1e6; }
+.portes a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(26, 25, 22, 0.1);
+}
+.num {
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+.nom {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.entrer {
+  margin-top: auto;
+  align-self: flex-start;
+  color: var(--accent);
+  font-weight: 700;
+  border: 1px solid rgba(29, 74, 56, 0.45);
+  border-radius: 999px;
+  padding: 0.28rem 0.8rem;
+}
+label { display: block; font-weight: 700; margin: 0.3rem 0 0.4rem; }
+input[type="search"] {
+  font: inherit;
+  width: min(24rem, 100%);
+  padding: 0.75rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--blanc);
+  color: var(--encre);
+  box-shadow: var(--ombre);
+}
+.recherche { margin: 1rem 0 0.4rem; }
+.cas {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.8rem;
+  align-items: start;
+  background: var(--blanc);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  margin: 0.6rem 0;
+  box-shadow: var(--ombre);
+}
+.cas p { margin: 0; }
+.pilule {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  background: #e7efe9;
+  color: var(--encre);
+}
+.pilule.brouillon { background: #f4ead6; }
+.pilule.ouvert { background: #e7e6f2; }
+.pilule.vide { background: #eeeae4; }
+code, pre { font-family: var(--mono); }
+pre {
+  background: #1a1916;
+  color: #f6f5f2;
+  padding: 1.1rem 1.15rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+  line-height: 1.45;
+}
+button {
+  font: inherit;
+  font-weight: 700;
+  background: var(--encre);
+  color: var(--papier);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+}
+.js-seul { display: none; }
+html.js .js-seul { display: inline-block; }
+.annonce { color: var(--second); font-size: 0.95rem; }
+.si-etroit { display: none; }
+@media (max-width: 860px) { .si-etroit { display: block; } }
+.defile { overflow-x: auto; border-radius: 1rem; box-shadow: var(--ombre); }
+table { border-collapse: collapse; width: 100%; background: var(--blanc); }
+caption { text-align: left; padding: 0.9rem 1rem 0.2rem; font-weight: 700; }
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--filet);
+}
+th { font-size: 0.92rem; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.deux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+@media (max-width: 640px) {
+  .deux, .cas { grid-template-columns: 1fr; }
+}
+.chiffre {
+  margin: 0;
+  background: var(--blanc);
+  border-radius: 1.5rem;
+  padding: 1.3rem 1.3rem 1.15rem;
+  box-shadow: var(--ombre);
+}
+.chiffre strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(4rem, 10vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.lectures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin: 0.8rem 0 0;
+}
+@media (max-width: 700px) { .lectures { grid-template-columns: 1fr; } }
+.lectures div {
+  background: var(--blanc);
+  border-radius: 1rem;
+  padding: 1rem 1.05rem;
+  box-shadow: var(--ombre);
+}
+.lectures h3 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+.lectures p { margin: 0; }
+figure {
+  margin: 1.2rem 0;
+  width: fit-content;
+  max-width: 100%;
+  background: #efece6;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: var(--ombre);
+}
+figure img {
+  display: block;
+  width: min(100%, 480px);
+  height: auto;
+  background: #fff;
+  border-radius: 0.65rem;
+  box-shadow: 0 0 0 1px rgba(26, 25, 22, 0.22);
+}
+.specimen {
+  margin: 0 0 0.75rem;
+  color: var(--second);
+  font-size: 0.92rem;
+}
+figcaption { margin-top: 0.85rem; max-width: 46rem; }
+.tiroirs, .natures, .silence {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.tiroirs { grid-template-columns: repeat(4, 1fr); }
+.natures { grid-template-columns: repeat(3, 1fr); }
+.silence { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .tiroirs, .natures { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .tiroirs, .natures, .silence { grid-template-columns: 1fr; }
+}
+.tiroirs li, .natures li, .silence li {
+  background: var(--blanc);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem 1rem;
+  box-shadow: var(--ombre);
+}
+.tiroirs .mot, .natures .nature {
+  display: block;
+  color: var(--second);
+  font-size: 0.92rem;
+}
+.tiroirs strong, .silence strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0.15rem 0;
+}
+.natures .compte {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.silence strong { font-size: 2.4rem; font-variant-numeric: lining-nums tabular-nums; }
+.offre {
+  margin-top: 3rem;
+  padding: 2.2rem 1.4rem 2.4rem;
+  border-radius: 1.75rem;
+  background: #1a1916;
+  color: #f6f5f2;
+}
+.offre .surtitre { color: #c9ddd2; }
+.offre h2 { color: #f6f5f2; margin-top: 0.2rem; }
+.offre p { max-width: 38rem; }
+.offre a:focus { outline-color: #f6f5f2; }
+.pied {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
+  color: var(--second);
+}
+.encart {
+  background: #f8f1e4;
+  border-radius: 1rem;
+  padding: 0.3rem 1.1rem 1rem;
+  margin-top: 1.2rem;
+}
+</style>
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="barre">
+  <a class="marque" href="#accueil">Banc d’essai</a>
+  <nav class="site-nav" aria-label="Portes">
+    <a href="#accueil">Accueil</a>
+    <a href="#auditer">Auditer</a>
+    <a href="#mesurer">Mesurer un outil</a>
+    <a href="#comprendre">Comprendre l’audit</a>
+  </nav>
+</header>
+<main id="contenu">
+
+<section id="accueil">
+  <p class="surtitre">RGAA 4.1.2</p>
+  <h1>Banc d’essai RGAA</h1>
+  <p class="limite">Ce banc ne signe pas une déclaration d’accessibilité et ne calcule pas le taux d’un site.</p>
+  <p class="texte">Des cas figés permettent de comparer une lecture au RGAA 4.1.2, test par test. La méthode française de la DINUM explique le geste. Elle ne publie pas le verdict relu de chaque test. Ara reste l’outil de saisie d’un audit. Ce dépôt n’est pas encore public.</p>
+  <ul class="faits">
+<li><strong>33</strong> cas revus</li><li><strong>28</strong> brouillons hors du compte</li><li><strong>Aucune</strong> restitution revue</li><li><strong>Non publié</strong> taux de la vitrine</li>
+</ul>
+  <h2>Trois portes, selon le geste</h2>
+  <ul class="portes">
+    <li>
+      <a href="#auditer">
+        <span class="num">01</span>
+        <span class="nom">Auditer</span>
+        <span>Ouvrir un test, lire les cas revus, et laisser le brouillon hors de toute citation.</span>
+        <span class="entrer">Entrer</span>
+      </a>
+    </li>
+    <li>
+      <a href="#mesurer">
+        <span class="num">02</span>
+        <span class="nom">Mesurer un outil</span>
+        <span>Déposer une prédiction et lire l’accord des cas tentés, silences compris.</span>
+        <span class="entrer">Entrer</span>
+      </a>
+    </li>
+    <li>
+      <a href="#comprendre">
+        <span class="num">03</span>
+        <span class="nom">Comprendre l’audit</span>
+        <span>Voir ce que la méthode demande, et ce que le banc n’a pas encore relu.</span>
+        <span class="entrer">Entrer</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="vue" id="auditer">
+  <a class="retour" href="#accueil">Retour aux portes</a>
+  <h1>Auditer</h1>
+  <p class="limite">Une lecture contributive, reliée au test officiel. Pas une position de la DINUM. Pas le taux d’un site en ligne.</p>
+  <p class="texte">La relecture du lot déjà revu date du 22 octobre 2026. Ensuite, une personne qui n’a pas écrit le cas passe le statut à « revu ».</p>
+
+  <h2>Chercher un test</h2>
+  <p class="texte">La page jugée est minimale : le motif vaut pour cette page, pas pour un service en cours d’audit. La plupart des 258 tests n’ont ni cas ni protocole, et cette absence n’est pas un échec de la page auditée.</p>
+  <form class="recherche" role="search" id="forme-test" action="#auditer" method="get">
+    <label for="numero">Numéro de test</label>
+    <input id="numero" name="numero" type="search" placeholder="6.1.1" autocomplete="off" spellcheck="false">
+  </form>
+  <p class="annonce">Sans script, les exemples restent tous visibles. Avec script, le champ filtre ces exemples sur le numéro. <a href="site/cas/index.html">Le catalogue</a> liste les cas déjà écrits.</p>
+  <p id="aucun" hidden>Pas d’exemple illustré pour <span id="aucun-numero"></span>. <a href="site/cas/index.html">Les cas déjà écrits</a> sont dans le catalogue. La plupart des tests n’ont ni cas ni protocole.</p>
+
+  <article data-test="6.1.1">
+    <h3>6.1.1 — Intitulé de lien</h3>
+    <p class="texte">Sept cas revus. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.1">Test officiel 6.1.1</a>. <a href="site/protocoles/6.1.1.html">Protocole</a>.</p>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/cliquez-ici/page.html"><code>6.1.1/cliquez-ici</code></a>. Le lien « cliquez ici » est seul.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/cliquez-ici-dans-la-phrase/page.html"><code>6.1.1/cliquez-ici-dans-la-phrase</code></a>. Le lien est dans la phrase « Pour écrire au service, cliquez ici ».</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/contacter-le-service/page.html"><code>6.1.1/contacter-le-service</code></a>. L’intitulé « Contacter le service » dit la fonction et la destination.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/lire-la-suite-seul/page.html"><code>6.1.1/lire-la-suite-seul</code></a>. « Lire la suite » est seul, sans titre précédent.</p></div>
+    <div class="cas"><p><span class="pilule ouvert">Revu</span> Non tranché.</p><p><a href="cas/rgaa-4.1.2/6.1.1/lire-la-suite-sous-article/page.html"><code>6.1.1/lire-la-suite-sous-article</code></a>. « Lire la suite » sous le titre « Article » : deux lectures restent défendables.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/lire-la-suite-sous-horaires/page.html"><code>6.1.1/lire-la-suite-sous-horaires</code></a>. « Lire la suite » sous « Horaires d’ouverture », titre qui nomme la destination.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/6.1.1/mentions-legales/page.html"><code>6.1.1/mentions-legales</code></a>. L’intitulé « Mentions légales » dit la destination.</p></div>
+    <p class="texte">L’autre cas non tranché du lot est <a href="cas/rgaa-4.1.2/8.6.1/titre-contact-seul/page.html"><code>8.6.1/titre-contact-seul</code></a>. Il reste non tranché.</p>
+  </article>
+
+  <article data-test="3.2.1">
+    <h3>3.2.1 — Contraste du texte</h3>
+    <p class="texte">Trois cas revus. Ce test ne répond pas à 3.2.2, 3.2.3, 3.2.4 ni 3.2.5. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1">Test officiel 3.2.1</a>.</p>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme.</p><p><a href="cas/rgaa-4.1.2/3.2.1/contraste-insuffisant/page.html"><code>3.2.1/contraste-insuffisant</code></a>. #777777 sur #ffffff, 16 px, graisse 400, rapport 4,48:1. Le seuil est 4,5:1. 4,48 ne s’écrit pas 4,5.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/3.2.1/contraste-suffisant/page.html"><code>3.2.1/contraste-suffisant</code></a>. #333333 sur #ffffff, rapport 12,63:1.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme. Vision.</p><p><a href="cas/rgaa-4.1.2/3.2.1/texte-en-image/page.html"><code>3.2.1/texte-en-image</code></a>. Le texte « Archives municipales » est peint dans l’image, #b4b4b4 sur #ffffff, rapport 2,07:1. La feuille de style ne porte pas ces couleurs. Capture : Chromium 154.0.8037.97, viewport 1280×720, zoom 100 %.</p></div>
+  </article>
+
+  <article data-test="8.6.1">
+    <h3>8.6.1 — Titre de page</h3>
+    <p class="texte">Trois cas revus. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.6.1">Test officiel 8.6.1</a>.</p>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme.</p><p><a href="cas/rgaa-4.1.2/8.6.1/titre-bienvenue/page.html"><code>8.6.1/titre-bienvenue</code></a>. Le titre est « Bienvenue » sur la page de contact.</p></div>
+    <div class="cas"><p><span class="pilule ouvert">Revu</span> Non tranché.</p><p><a href="cas/rgaa-4.1.2/8.6.1/titre-contact-seul/page.html"><code>8.6.1/titre-contact-seul</code></a>. Le titre est « Contact », sans le nom du service. Deux lectures restent défendables.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/8.6.1/titre-service/page.html"><code>8.6.1/titre-service</code></a>. Le titre est « Contact — Archives municipales ».</p></div>
+  </article>
+
+  <article data-test="10.7.1">
+    <h3>10.7.1 — Visibilité du focus</h3>
+    <p class="texte">Deux cas revus. La nature est le geste. La capture montre l’état après le focus, pas la page au repos. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.7.1">Test officiel 10.7.1</a>.</p>
+    <div class="cas"><p><span class="pilule">Revu</span> Non conforme.</p><p><a href="cas/rgaa-4.1.2/10.7.1/focus-absent/page.html"><code>10.7.1/focus-absent</code></a>. Le contour est annulé. La capture est prise après le focus.</p></div>
+    <div class="cas"><p><span class="pilule">Revu</span> Conforme.</p><p><a href="cas/rgaa-4.1.2/10.7.1/focus-visible/page.html"><code>10.7.1/focus-visible</code></a>. Contour noir de 3 px.</p></div>
+  </article>
+
+  <article data-test="4.13.1">
+    <h3>4.13.1 — Restitution d’un lecteur audio</h3>
+    <p class="texte">Le test n’a qu’un brouillon. Il ne se cite pas.</p>
+    <div class="cas"><p><span class="pilule brouillon">Brouillon</span> Pas une lecture à citer.</p><p><a href="cas/rgaa-4.1.2/4.13.1/lecteur-audio/page.html"><code>4.13.1/lecteur-audio</code></a>. La <a href="cas/rgaa-4.1.2/4.13.1/lecteur-audio/transcription.txt">transcription</a> contient EXEMPLE. Aucune passe réelle.</p></div>
+  </article>
+
+  <article data-test="1.1.1">
+    <h3>1.1.1 — Alternative d’une image</h3>
+    <div class="cas"><p><span class="pilule vide">Vide</span> Pas de cas, pas de protocole.</p><p>L’absence est l’état normal. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.1.1">Test officiel 1.1.1</a>.</p></div>
+  </article>
+
+  <h2>File de relecture</h2>
+  <p class="texte">27 brouillons bloquent le taux de l’échantillon vitrine. Les critères encore ouverts sont 1.2, 1.3, 3.2, 6.1 et 8.1. En relire un seul ne ferme pas le critère. Le taux reste non publié.</p>
+  <p class="texte">La page minimale s’ouvre d’abord, puis le motif. La personne qui a écrit le cas ne passe pas le statut à « revu ». Une autre personne écrit, dans la demande de fusion : « relu sur le test X.Y.Z le AAAA-MM-JJ ». Trois réponses : d’accord avec le verdict proposé ; pas d’accord, avec un motif ; deux lectures défendables, et le verdict à proposer est alors non tranché.</p>
+  <p class="texte">Le piège est de lire « pas d’image » comme une image non conforme. Le statut « Brouillon » se lit avant le verdict, qui ne se cite pas.</p>
+
+  <h3>Au navigateur : l’élément visé est absent</h3>
+<div class="defile" tabindex="0">
+<p class="annonce si-etroit">Sur un écran étroit, ce tableau se parcourt horizontalement.</p>
+<table>
+<caption>Brouillons d’absence. Le verdict proposé ne se cite pas.</caption>
+<thead><tr><th scope="col">Statut</th><th scope="col">Cas</th><th scope="col">Page</th><th scope="col">Verdict proposé</th></tr></thead>
+<tbody>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.1/sans-image/page.html"><code>1.2.1/sans-image</code></a></td><td>Page sans image de décoration</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.2/sans-zone/page.html"><code>1.2.2/sans-zone</code></a></td><td>Page sans zone non cliquable</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.3/sans-objet/page.html"><code>1.2.3/sans-objet</code></a></td><td>Page sans image objet décorative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.4/sans-svg/page.html"><code>1.2.4/sans-svg</code></a></td><td>Page sans image vectorielle décorative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.5/sans-canvas/page.html"><code>1.2.5/sans-canvas</code></a></td><td>Page sans image bitmap décorative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.2.6/sans-embed/page.html"><code>1.2.6/sans-embed</code></a></td><td>Page sans image embarquée décorative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.1/sans-image/page.html"><code>1.3.1/sans-image</code></a></td><td>Page sans image porteuse d’information</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.2/sans-zone/page.html"><code>1.3.2/sans-zone</code></a></td><td>Page sans zone d’image réactive</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.3/sans-bouton-image/page.html"><code>1.3.3/sans-bouton-image</code></a></td><td>Page sans bouton de type image</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.4/sans-objet/page.html"><code>1.3.4/sans-objet</code></a></td><td>Page sans image objet informative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.5/sans-embed/page.html"><code>1.3.5/sans-embed</code></a></td><td>Page sans image embarquée informative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.6/sans-svg/page.html"><code>1.3.6/sans-svg</code></a></td><td>Page sans image vectorielle informative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.7/sans-canvas/page.html"><code>1.3.7/sans-canvas</code></a></td><td>Page sans image bitmap informative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.8/sans-canvas/page.html"><code>1.3.8/sans-canvas</code></a></td><td>Page sans contenu alternatif de canvas</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.9/sans-image/page.html"><code>1.3.9/sans-image</code></a></td><td>Page sans alternative d’image informative</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/6.1.2/sans-lien-image/page.html"><code>6.1.2/sans-lien-image</code></a></td><td>Page sans lien image</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/6.1.3/sans-lien-composite/page.html"><code>6.1.3/sans-lien-composite</code></a></td><td>Page sans lien composite</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/6.1.4/sans-lien-svg/page.html"><code>6.1.4/sans-lien-svg</code></a></td><td>Page sans lien SVG</td><td>Non applicable</td></tr>
+</tbody>
+</table>
+</div>
+
+  <h3>Au navigateur : contraste, taille, graisse</h3>
+<div class="defile" tabindex="0">
+<p class="annonce si-etroit">Sur un écran étroit, ce tableau se parcourt horizontalement.</p>
+<table>
+<caption>Brouillons de contraste. Le verdict proposé ne se cite pas.</caption>
+<thead><tr><th scope="col">Statut</th><th scope="col">Cas</th><th scope="col">Page</th><th scope="col">Verdict proposé</th></tr></thead>
+<tbody>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/3.2.2/sans-texte-gras/page.html"><code>3.2.2/sans-texte-gras</code></a></td><td>Page sans petit texte en gras</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/3.2.3/contraste-suffisant/page.html"><code>3.2.3/contraste-suffisant</code></a></td><td>Texte large #1b1b1b sur fond blanc</td><td>Conforme</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/3.2.3/sans-grand-texte/page.html"><code>3.2.3/sans-grand-texte</code></a></td><td>Page sans texte large sans graisse</td><td>Non applicable</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/3.2.4/contraste-suffisant/page.html"><code>3.2.4/contraste-suffisant</code></a></td><td>Titre gras #1b1b1b sur fond blanc</td><td>Conforme</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/3.2.5/sans-mecanisme/page.html"><code>3.2.5/sans-mecanisme</code></a></td><td>Page sans mécanisme de contraste</td><td>Non applicable</td></tr>
+</tbody>
+</table>
+</div>
+
+  <h3>Autres brouillons de la file</h3>
+<div class="defile" tabindex="0">
+<p class="annonce si-etroit">Sur un écran étroit, ce tableau se parcourt horizontalement.</p>
+<table>
+<caption>Autres brouillons cités par la vitrine. Le verdict proposé ne se cite pas.</caption>
+<thead><tr><th scope="col">Statut</th><th scope="col">Cas</th><th scope="col">Page</th><th scope="col">Verdict proposé</th></tr></thead>
+<tbody>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/1.3.9/alt-court/page.html"><code>1.3.9/alt-court</code></a></td><td>Alternative courte du compteur</td><td>Conforme</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/6.1.5/nom-contient-visible/page.html"><code>6.1.5/nom-contient-visible</code></a></td><td>Le nom accessible reprend l’intitulé</td><td>Conforme</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/8.1.2/doctype-html/page.html"><code>8.1.2/doctype-html</code></a></td><td>Doctype HTML valide</td><td>Conforme</td></tr>
+<tr><td>Brouillon</td><td><a href="cas/rgaa-4.1.2/8.1.3/doctype-avant-html/page.html"><code>8.1.3/doctype-avant-html</code></a></td><td>Doctype placé avant l’élément html</td><td>Conforme</td></tr>
+</tbody>
+</table>
+</div>
+
+  <div class="encart">
+    <h3>Pas dans la file</h3>
+    <p><span class="pilule brouillon">Brouillon</span> <a href="cas/rgaa-4.1.2/4.13.1/lecteur-audio/page.html"><code>4.13.1/lecteur-audio</code></a>. La transcription contient EXEMPLE. Ce test n’est pas dans le périmètre de la vitrine : le relire ne publie pas le taux. Aucun cas document n’existe. Aucune file n’est ouverte pour la restitution, ni pour le document.</p>
+  </div>
+</section>
+
+<section class="vue" id="mesurer">
+  <a class="retour" href="#accueil">Retour aux portes</a>
+  <h1>Mesurer un outil</h1>
+  <p class="limite">Le dépôt ne lance pas l’outil. Une prédiction déposée ne devient pas un cas revu.</p>
+  <p class="texte">La méthode visée est le RGAA 4.1.2, pas le RGAA 5, pas les ACT Rules. Le lot de cas est original : il n’est pas repris d’une autre suite. Le commit du référentiel DINUM est noté dans <a href="referentiel/rgaa-4.1.2/SOURCE.md">SOURCE.md</a>.</p>
+  <ul class="faits">
+<li><strong>258</strong> tests</li><li><strong>106</strong> critères</li><li><strong>36</strong> tests ont un protocole</li><li><strong>33</strong> cas revus</li><li><strong>28</strong> brouillons hors du compte</li><li><strong>2</strong> cas revus non tranchés</li><li><strong>Non publié</strong> taux de la vitrine</li>
+</ul>
+
+  <h2>Le contrat</h2>
+  <ul class="texte">
+    <li>L’identifiant a la forme <code>test/slug</code>, par exemple <code>6.1.1/cliquez-ici</code>. Ni un critère, ni un critère WCAG, ni un identifiant d’outil.</li>
+    <li>Verdicts admis : <code>conforme</code>, <code>non_conforme</code>, <code>non_applicable</code>, <code>non_tranche</code>.</li>
+    <li>Seul un cas revu entre dans la mesure. Le verdict d’un brouillon, comme <code>4.13.1/lecteur-audio</code>, n’est pas une référence.</li>
+    <li>Une prédiction absente est un silence, pas un désaccord. Elle n’entre pas au dénominateur.</li>
+    <li>Sur un cas non tranché, s’abstenir est le comportement mesuré. Les cas sont <code>6.1.1/lire-la-suite-sous-article</code> et <code>8.6.1/titre-contact-seul</code>. Le trancher n’augmente ni l’accord ni l’erreur.</li>
+    <li>2 accords et 29 silences ne mesurent pas le référentiel.</li>
+  </ul>
+  <p class="texte">L’exemple est d’accord sur les 2 cas tranchés qu’il tente. Il s’abstient sur 2 cas non tranchés : 1 prédiction au verdict non tranché et 1 silence que le scoreur compte comme une abstention. Il se tait sur 29 cas tranchés. Ce n’est pas une mesure du référentiel.</p>
+  <ul class="silence" aria-label="Ce que cet exemple mesure">
+<li><strong>2</strong> cas tentés, en accord</li><li><strong>2</strong> abstentions, sur des cas non tranchés</li><li><strong>29</strong> silences, hors du calcul</li>
+</ul>
+  <pre id="json-exemple" tabindex="0"><code>{
+  "outil": "mes-regles-0.3",
+  "date": "2026-10-23",
+  "predictions": [
+    { "cas": "8.1.1/doctype-absent", "verdict": "non_conforme" },
+    { "cas": "8.1.1/doctype-html", "verdict": "conforme" },
+    { "cas": "6.1.1/lire-la-suite-sous-article", "verdict": "non_tranche" }
+  ]
+}</code></pre>
+  <p><button type="button" class="js-seul" id="copier">Copier l’exemple</button> <span id="copie-statut" role="status"></span></p>
+  <pre><code>python3 outils/scorer.py ma-lecture.json</code></pre>
+  <p class="texte">Le schéma est <a href="schema/prediction.schema.json"><code>schema/prediction.schema.json</code></a>. L’exemple tenu par le dépôt, <a href="exemples/prediction-parfaite.json"><code>exemples/prediction-parfaite.json</code></a>, vérifie le scoreur. Il ne classe pas un outil.</p>
+  <p class="texte">L’entrée d’un outil est <code>page.html</code>, avec la capture lorsqu’il y en a une. Le motif dans <code>cas.json</code> est le corrigé. Les deux ne se mélangent pas.</p>
+
+  <h2>Ce qu’une nature demande</h2>
+  <ul class="natures">
+<li><span class="compte">13</span><span class="nature">Déterministe</span> HTML ou CSS, là où la méthode ferme le test.</li>
+<li><span class="compte">17</span><span class="nature">Pertinence</span> Comprendre un sens et le rapporter au test. Dont 2 non tranchés.</li>
+<li><span class="compte">1</span><span class="nature">Vision</span> Une capture, parce que le HTML ne suffit pas.</li>
+<li><span class="compte">2</span><span class="nature">Geste</span> L’état après l’action, avec le viewport ou le zoom noté.</li>
+<li><span class="compte">Aucun</span><span class="nature">Restitution</span> Produit, version, langue, système, transcription réelle.</li>
+<li><span class="compte">Aucun</span><span class="nature">Document</span> PDF ou fichier bureautique.</li>
+</ul>
+  <p class="texte">Le protocole 3.2.1 est déterministe : deux couleurs déclarées sur le même élément se calculent. Le cas <code>3.2.1/texte-en-image</code> est de vision. La feuille de style ne porte pas ses couleurs, et ce calcul rate le cas.</p>
+
+  <h2>Les 13 thématiques</h2>
+  <p class="texte">12 tests ont au moins un cas revu. Cela fait 33 cas, pas 33 tests couverts. Un test revu ne couvre pas sa thématique. 222 tests n’ont ni protocole ni cas.</p>
+  <div class="defile" tabindex="0">
+    <p class="annonce si-etroit">Sur un écran étroit, ce tableau se parcourt horizontalement.</p>
+    <table>
+      <caption>Couverture par thématique, au 22 octobre 2026.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Thématique</th>
+          <th class="n" scope="col">Tests</th>
+          <th class="n" scope="col">Avec un cas revu</th>
+          <th class="n" scope="col">Brouillon seulement</th>
+          <th class="n" scope="col">Sans cas</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><th scope="row">Images</th><td class="n">59</td><td class="n">2</td><td class="n">13</td><td class="n">44</td></tr>
+<tr><th scope="row">Cadres</th><td class="n">2</td><td class="n">0</td><td class="n">0</td><td class="n">2</td></tr>
+<tr><th scope="row">Couleurs</th><td class="n">15</td><td class="n">1</td><td class="n">4</td><td class="n">10</td></tr>
+<tr><th scope="row">Multimédia</th><td class="n">25</td><td class="n">0</td><td class="n">1</td><td class="n">24</td></tr>
+<tr><th scope="row">Tableaux</th><td class="n">15</td><td class="n">0</td><td class="n">0</td><td class="n">15</td></tr>
+<tr><th scope="row">Liens</th><td class="n">6</td><td class="n">2</td><td class="n">4</td><td class="n">0</td></tr>
+<tr><th scope="row">Scripts</th><td class="n">11</td><td class="n">0</td><td class="n">0</td><td class="n">11</td></tr>
+<tr><th scope="row">Éléments obligatoires</th><td class="n">13</td><td class="n">4</td><td class="n">2</td><td class="n">7</td></tr>
+<tr><th scope="row">Structuration de l’information</th><td class="n">9</td><td class="n">0</td><td class="n">0</td><td class="n">9</td></tr>
+<tr><th scope="row">Présentation de l’information</th><td class="n">29</td><td class="n">1</td><td class="n">0</td><td class="n">28</td></tr>
+<tr><th scope="row">Formulaires</th><td class="n">34</td><td class="n">2</td><td class="n">0</td><td class="n">32</td></tr>
+<tr><th scope="row">Navigation</th><td class="n">19</td><td class="n">0</td><td class="n">0</td><td class="n">19</td></tr>
+<tr><th scope="row">Consultation</th><td class="n">21</td><td class="n">0</td><td class="n">0</td><td class="n">21</td></tr>
+</tbody>
+    </table>
+  </div>
+  <p class="texte">Le taux de la vitrine, non publié tant que les critères 1.2, 1.3, 3.2, 6.1 et 8.1 restent ouverts, n’est pas l’accord des prédictions.</p>
+</section>
+
+<section class="vue" id="comprendre">
+  <a class="retour" href="#accueil">Retour aux portes</a>
+  <h1>Comprendre l’audit</h1>
+  <p class="limite">Ce banc ne signe pas une déclaration d’accessibilité et ne calcule pas le taux d’un site.</p>
+  <p class="texte">Le RGAA 4.1.2 est la méthode française de la DINUM. Elle pose 106 critères, en 13 thématiques. Un critère est une question. Un test est une façon de la vérifier. Il y en a 258. La méthode explique le geste. Elle ne publie pas une page dont le verdict de chaque test aurait déjà été relu.</p>
+
+  <h2>Un texte peint dans l’image</h2>
+  <p class="texte">Le texte « Archives municipales » se lit. Il est peint dans l’image, et la feuille de style ne porte pas ses couleurs.</p>
+  <figure>
+    <p class="specimen">Capture réelle, 480 × 160. Le texte est le gris clair, en haut à gauche.</p>
+    <img src="cas/rgaa-4.1.2/3.2.1/texte-en-image/texte.png" width="480" height="160" alt="Archives municipales, en gris clair sur fond blanc. Le texte est peint dans l’image.">
+    <figcaption>« Archives municipales », peint dans l’image, #b4b4b4 sur #ffffff, 16 px, graisse 400. Le rapport est 2,07:1. La feuille de style ne porte pas ces couleurs. Cas <a href="cas/rgaa-4.1.2/3.2.1/texte-en-image/page.html"><code>3.2.1/texte-en-image</code></a>, revu, non conforme. <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1">Test officiel 3.2.1</a>. Relecture du 22 octobre 2026.</figcaption>
+  </figure>
+  <div class="lectures">
+    <div>
+      <h3>Dans le HTML</h3>
+      <p>La page ne déclare pas la couleur de ces mots. Une machine qui ne lit que le code peut ne rien en voir, et produire quand même un nombre.</p>
+    </div>
+    <div>
+      <h3>Dans l’image</h3>
+      <p>#b4b4b4 sur #ffffff, 16 px, graisse 400. Le rapport est 2,07:1. Le seuil du test, pour ce texte, est 4,5:1. Une personne regarde l’image.</p>
+    </div>
+  </div>
+  <p class="texte">Le code ne suffit pas toujours. Il faut parfois voir les pixels, parfois faire un geste au clavier, parfois lancer un logiciel qui lit la page à voix haute. Cette transcription réelle n’est pas dans le banc.</p>
+
+  <h2>Deux chiffres</h2>
+  <div class="deux">
+    <p class="chiffre"><strong>258</strong> tests dans la méthode</p>
+    <p class="chiffre"><strong>33</strong> cas revus dans le banc</p>
+  </div>
+  <ul class="pastilles">
+<li><strong>36</strong> tests ont un protocole</li><li><strong>28</strong> brouillons hors du compte</li><li><strong>12</strong> tests ont au moins un cas revu</li>
+</ul>
+  <p class="texte">33 cas revus, pour 258 tests. La plupart des thématiques n’ont aucun cas revu.</p>
+  <ul class="tiroirs">
+<li><span class="mot">Quelques cas revus</span><strong>Images</strong><span>2 tests sur 59</span></li>
+<li><span class="mot">Vide</span><strong>Cadres</strong><span>2 tests, aucun cas</span></li>
+<li><span class="mot">Quelques cas revus</span><strong>Couleurs</strong><span>1 test sur 15</span></li>
+<li><span class="mot">Un brouillon, aucun cas revu</span><strong>Multimédia</strong><span>25 tests</span></li>
+<li><span class="mot">Vide</span><strong>Tableaux</strong><span>15 tests, aucun cas</span></li>
+<li><span class="mot">Quelques cas revus</span><strong>Liens</strong><span>2 tests sur 6</span></li>
+<li><span class="mot">Vide</span><strong>Scripts</strong><span>11 tests, aucun cas</span></li>
+<li><span class="mot">Quelques cas revus</span><strong>Éléments obligatoires</strong><span>4 tests sur 13</span></li>
+<li><span class="mot">Vide</span><strong>Structuration de l’information</strong><span>9 tests, aucun cas</span></li>
+<li><span class="mot">Quelques cas revus</span><strong>Présentation de l’information</strong><span>1 test sur 29</span></li>
+<li><span class="mot">Quelques cas revus</span><strong>Formulaires</strong><span>2 tests sur 34</span></li>
+<li><span class="mot">Vide</span><strong>Navigation</strong><span>19 tests, aucun cas</span></li>
+<li><span class="mot">Vide</span><strong>Consultation</strong><span>21 tests, aucun cas</span></li>
+</ul>
+
+  <h2>Le taux de la vitrine</h2>
+  <p class="texte">L’échantillon vitrine est un service fictif : quatre pages d’archives municipales, au taux non publié. Les critères 1.2, 1.3, 3.2, 6.1 et 8.1 restent ouverts, 27 brouillons les bloquent, et ce vide n’est ni un zéro ni un oubli.</p>
+  <p class="texte">Ara reste l’outil de saisie d’un audit, et la DINUM reste l’autrice de la méthode.</p>
+
+  <aside class="offre" aria-labelledby="offre-titre">
+    <p class="surtitre">Offre, à part du projet</p>
+    <h2 id="offre-titre">Ingénierie, pas un audit</h2>
+    <p>Un ingénieur logiciel indépendant. Il vend l’outillage d’un audit, l’intégration d’une mesure, et le lien entre une lecture et des cas déjà revus.</p>
+    <p>Il ne vend pas l’audit, ni la déclaration, ni un label. Pas de prix. Pas de délai. Pas de formulaire.</p>
+  </aside>
+</section>
+</main>
+<p class="pied">Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
+<script>
+document.documentElement.classList.add("js");
+(function () {
+  var champ = document.getElementById("numero");
+  var articles = Array.prototype.slice.call(document.querySelectorAll("[data-test]"));
+  var aucun = document.getElementById("aucun");
+  var numero = document.getElementById("aucun-numero");
+  var forme = document.getElementById("forme-test");
+  function filtrer() {
+    var q = champ.value.trim().toLowerCase();
+    var n = 0;
+    articles.forEach(function (article) {
+      var id = article.getAttribute("data-test");
+      var montrer = q === "" || id.indexOf(q) === 0;
+      article.hidden = !montrer;
+      if (montrer) n += 1;
+    });
+    aucun.hidden = q === "" || n !== 0;
+    numero.textContent = q;
+  }
+  forme.addEventListener("submit", function (event) {
+    event.preventDefault();
+    filtrer();
+  });
+  champ.addEventListener("input", filtrer);
+  filtrer();
+  var bouton = document.getElementById("copier");
+  var statut = document.getElementById("copie-statut");
+  bouton.addEventListener("click", function () {
+    var texte = document.getElementById("json-exemple").innerText;
+    if (!navigator.clipboard) {
+      statut.textContent = "Le bloc reste sélectionnable.";
+      return;
+    }
+    navigator.clipboard.writeText(texte).then(function () {
+      statut.textContent = "Exemple copié.";
+    }, function () {
+      statut.textContent = "La copie a échoué. Le bloc reste sélectionnable.";
+    });
+  });
+})();
+</script>
+</body>
+</html>

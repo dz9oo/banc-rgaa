@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import banc
+import vitrine
 
 SITE = banc.RACINE / "site"
 LIBELLES = {
@@ -103,43 +104,146 @@ def markdown_simple(texte: str) -> str:
     return "\n".join(html)
 
 
-STYLE = """
-body { margin: 0; background: #fff; color: #1a1a1a; font-family: sans-serif; line-height: 1.5; }
-main { max-width: 42rem; margin: 0 auto; padding: 0 1rem 3rem; }
-nav, footer { max-width: 42rem; margin: 0 auto; padding: 1rem; }
-a { color: #000091; }
-a:focus { outline: 3px solid #000; outline-offset: 2px; }
-code { font-family: ui-monospace, monospace; }
-table { border-collapse: collapse; width: 100%; }
-th, td { text-align: left; vertical-align: top; border-bottom: 1px solid #4d4d4d; padding: 0.3rem 0.5rem 0.3rem 0; }
+APOS = "\u2019"
+MARQUE = f"Banc d{APOS}essai RGAA"
+
+PAIRES = (
+    ("#1a1916", "#f6f5f2"),
+    ("#1a1916", "#ffffff"),
+    ("#1a1916", "#e7efe9"),
+    ("#1a1916", "#f4ead6"),
+    ("#1a1916", "#e7e6f2"),
+    ("#1a1916", "#eeeae4"),
+    ("#1d4a38", "#f6f5f2"),
+    ("#1d4a38", "#ffffff"),
+    ("#1d4a38", "#e5efe8"),
+    ("#1d4a38", "#f3eadc"),
+    ("#3f3b36", "#f6f5f2"),
+    ("#3f3b36", "#ffffff"),
+    ("#f6f5f2", "#1a1916"),
+)
+
+REDIRECTION = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url=../index.html">
+<title>{MARQUE}</title>
+<link rel="stylesheet" href="../habillage.css">
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<p class="limite"><a href="../index.html">Aller à la page d{APOS}accueil du banc d{APOS}essai.</a></p>
+</main>
+</body>
+</html>
 """
 
 
-def page(titre: str, corps: str, profondeur: int) -> str:
-    prefixe = "../" * profondeur
+def etiquette(nombre: int, singulier: str, pluriel: str) -> str:
+    if nombre == 1:
+        return f"1 {singulier}"
+    return f"{nombre} {pluriel}"
+
+
+def span_pilule(libelle: str, classe: str = "") -> str:
+    suffixe = f" {classe}" if classe else ""
+    return f'<span class="pilule{suffixe}">{echapper(libelle)}</span>'
+
+
+def pilules_entree(entree: dict, nature: bool) -> str:
+    if entree["statut"] == "brouillon":
+        classe_statut = "brouillon"
+    elif entree["verdict"] == "non_tranche":
+        classe_statut = "ouvert"
+    else:
+        classe_statut = ""
+    morceaux = [span_pilule(LIBELLES[entree["statut"]], classe_statut)]
+    if entree["statut"] == "brouillon":
+        morceaux.append(
+            '<span class="propose">Verdict proposé, '
+            + echapper(LIBELLES[entree["verdict"]].lower())
+            + "</span>"
+        )
+    else:
+        classe_verdict = "ouvert" if entree["verdict"] == "non_tranche" else ""
+        morceaux.append(span_pilule(LIBELLES[entree["verdict"]], classe_verdict))
+    if nature:
+        morceaux.append(span_pilule(LIBELLES[entree["nature"]]))
+    return " ".join(morceaux)
+
+
+def pilules_groupe(entrees: list) -> str:
+    revus = sum(1 for entree in entrees if entree["statut"] == "revu")
+    brouillons = sum(1 for entree in entrees if entree["statut"] == "brouillon")
+    ouverts = sum(
+        1
+        for entree in entrees
+        if entree["statut"] == "revu" and entree["verdict"] == "non_tranche"
+    )
+    morceaux = []
+    if revus:
+        morceaux.append(span_pilule(etiquette(revus, "revu", "revus")))
+    if ouverts:
+        morceaux.append(span_pilule(etiquette(ouverts, "non tranché", "non tranchés"), "ouvert"))
+    if brouillons:
+        morceaux.append(span_pilule(etiquette(brouillons, "brouillon", "brouillons"), "brouillon"))
+    return "".join(morceaux)
+
+
+def par_theme(index: dict, retenir) -> list[dict]:
+    ordre: list[int] = []
+    paquets: dict[int, dict] = {}
+    for test in index["tests"]:
+        if not retenir(test):
+            continue
+        cle = test["thematique"]
+        if cle not in paquets:
+            ordre.append(cle)
+            paquets[cle] = {"titre": test["thematique_titre"], "tests": []}
+        paquets[cle]["tests"].append(test)
+    return [paquets[cle] for cle in ordre]
+
+
+def page(titre: str, corps: str, profondeur: int, courant: str) -> str:
+    vers_site = "../" * profondeur
+    vers_racine = "../" * (profondeur + 1)
+
+    def item(cle: str, href: str, libelle: str) -> str:
+        ici = ' aria-current="page"' if cle == courant else ""
+        return f'<a href="{href}"{ici}>{libelle}</a>'
+
+    navigation = "\n".join(
+        [
+            item("", f"{vers_racine}index.html", "Accueil"),
+            item("cas", f"{vers_site}cas/index.html", "Cas"),
+            item("protocoles", f"{vers_site}protocoles/index.html", "Protocoles"),
+            item("echantillon", f"{vers_site}echantillon.html", "Échantillon"),
+        ]
+    )
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{echapper(titre)}</title>
-<style>{STYLE}</style>
+<title>{echapper(titre)} — {MARQUE}</title>
+<link rel="stylesheet" href="{vers_racine}habillage.css">
 </head>
 <body>
-<a href="#contenu">Aller au contenu</a>
-<nav aria-label="Navigation du banc">
-<p>
-<a href="{prefixe}index.html">Accueil</a>
-· <a href="{prefixe}cas/index.html">Cas</a>
-· <a href="{prefixe}protocoles/index.html">Protocoles</a>
-· <a href="{prefixe}echantillon.html">Échantillon</a>
-</p>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="barre">
+<a class="marque" href="{vers_racine}index.html">Banc d{APOS}essai</a>
+<nav class="site-nav" aria-label="Navigation du banc">
+{navigation}
 </nav>
+</header>
 <main id="contenu">
 {corps}
 </main>
-<footer>
-<p>Banc d'essai communautaire pour le RGAA 4.1.2. Les verdicts revus sont des lectures contributives, reliées à la méthode officielle. Ce site ne signe pas une conformité.</p>
+<footer class="pied">
+<p>Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
 </footer>
 </body>
 </html>
@@ -152,119 +256,225 @@ def ecrire(dest: Path, relatif: str, contenu: str) -> None:
     chemin.write_text(contenu, encoding="utf-8")
 
 
+def phrase_catalogue(revus: int, brouillons: int) -> str:
+    morceaux = []
+    if revus:
+        morceaux.append(etiquette(revus, "cas revu", "cas revus"))
+    if brouillons:
+        morceaux.append(etiquette(brouillons, "brouillon", "brouillons"))
+    if not morceaux:
+        tete = "Aucun cas pour l" + APOS + "instant."
+    elif len(morceaux) == 1:
+        tete = morceaux[0] + "."
+    else:
+        tete = f"{morceaux[0]}, {morceaux[1]}."
+    return (
+        tete
+        + " Le statut se lit avant le verdict. Un brouillon ne se cite pas. "
+        + "Les tests sans cas ne figurent pas ici."
+    )
+
+
 def construire(dest: Path) -> None:
-    if rapport("#000091", "#ffffff") < 4.5 or rapport("#1a1a1a", "#ffffff") < 4.5:
-        raise RuntimeError("le thème du site n'atteint pas 4,5:1")
+    for avant, arriere in PAIRES:
+        if rapport(avant, arriere) < 4.5:
+            raise RuntimeError(f"contraste insuffisant {avant} sur {arriere}")
+    if not (banc.RACINE / "habillage.css").is_file():
+        raise RuntimeError("habillage.css absent")
     index = banc.charger_index()
     cas = banc.charger_cas()
-    compte = banc.compte_couverture(cas, index)
     echantillon = banc.lire_json(banc.CHEMIN_ECHANTILLON)
     connus = banc.tests_par_id(index)
-    corps = [
-        "<h1>Banc d'essai RGAA</h1>",
-        "<p>Cas figés, protocoles et échantillon pour comparer un audit au RGAA 4.1.2. Un verdict s'accompagne de son motif et du lien vers le test officiel.</p>",
-        "<h2>Couverture</h2>",
-        "<table>",
-        "<caption>Comptes du dépôt</caption>",
-        "<thead><tr><th scope=\"col\">Indicateur</th><th scope=\"col\">Nombre</th></tr></thead>",
-        "<tbody>",
-        f"<tr><th scope=\"row\">Tests du référentiel</th><td>{compte['tests']}</td></tr>",
-        f"<tr><th scope=\"row\">Protocoles rédigés</th><td>{compte['protocoles']}</td></tr>",
-        f"<tr><th scope=\"row\">Cas revus</th><td>{compte['revus']}</td></tr>",
-        f"<tr><th scope=\"row\">Cas non tranchés</th><td>{compte['non_tranches']}</td></tr>",
-        "</tbody></table>",
-    ]
-    ecrire(dest, "index.html", page("Banc d'essai RGAA", "\n".join(corps), 0))
+    ecrire(dest, "index.html", REDIRECTION)
     groupes: dict[str, list] = {}
     for entree in cas:
         groupes.setdefault(entree["test"], []).append(entree)
-    lignes = ["<h1>Cas</h1>", "<ul>"]
-    for test in sorted(groupes, key=banc.cle_tri):
-        intitule = connus[test]["intitule"]
-        lignes.append(f"<li><a href=\"{test}/index.html\">{echapper(test)}</a> — {echapper(intitule)}</li>")
-    lignes.append("</ul>")
-    ecrire(dest, "cas/index.html", page("Cas", "\n".join(lignes), 1))
+    sections = []
+    for theme in par_theme(index, lambda test: test["id"] in groupes):
+        cartes = []
+        for test in theme["tests"]:
+            cartes.append(
+                "<li><a href=\""
+                + echapper(test["id"])
+                + "/index.html\">"
+                + f'<span class="numero">{echapper(test["id"])}</span>'
+                + f'<span class="intitule">{echapper(test["intitule"])}</span>'
+                + f'<span class="ligne-pilules">{pilules_groupe(groupes[test["id"]])}</span>'
+                + "</a></li>"
+            )
+        sections.append(
+            f"<section><h2>{echapper(theme['titre'])}</h2>"
+            f"<ul class=\"catalogue\">{''.join(cartes)}</ul></section>"
+        )
+    revus = sum(1 for entree in cas if entree["statut"] == "revu")
+    brouillons = sum(1 for entree in cas if entree["statut"] == "brouillon")
+    corps = "\n".join(
+        [
+            '<p class="surtitre">Catalogue</p>',
+            "<h1>Les cas</h1>",
+            f'<p class="limite">{echapper(phrase_catalogue(revus, brouillons))}</p>',
+            *sections,
+        ]
+    )
+    ecrire(dest, "cas/index.html", page("Les cas", corps, 1, "cas"))
     for test, entrees in groupes.items():
-        lignes = [f"<h1>Test {echapper(test)}</h1>", f"<p>{echapper(connus[test]['intitule'])}</p>", "<ul>"]
+        fiches = []
         for entree in sorted(entrees, key=lambda item: item["id"]):
             slug = entree["id"].split("/", 1)[1]
-            lignes.append(
-                f"<li><a href=\"{slug}.html\">{echapper(entree['titre'])}</a> — {LIBELLES[entree['verdict']]}, {LIBELLES[entree['statut']]}</li>"
+            fiches.append(
+                "<li><a href=\""
+                + echapper(slug)
+                + ".html\">"
+                + f'<span class="ligne-pilules">{pilules_entree(entree, nature=False)}</span>'
+                + f"<strong>{echapper(entree['titre'])}</strong>"
+                + "</a></li>"
             )
-        lignes.append("</ul>")
-        ecrire(dest, f"cas/{test}/index.html", page(f"Test {test}", "\n".join(lignes), 2))
+        liens = [
+            f'<a href="{echapper(connus[test]["methode"])}">Test officiel {echapper(test)}</a>'
+        ]
+        if connus[test]["protocole"]:
+            liens.append(f'<a href="../../protocoles/{echapper(test)}.html">Protocole</a>')
+        corps = "\n".join(
+            [
+                '<a class="retour" href="../index.html">Retour aux cas</a>',
+                '<p class="surtitre">Test</p>',
+                f"<h1>{echapper(test)}</h1>",
+                f'<p class="limite">{echapper(connus[test]["intitule"])}</p>',
+                f'<p class="texte">{" · ".join(liens)}</p>',
+                f'<ul class="pile">{"".join(fiches)}</ul>',
+            ]
+        )
+        ecrire(dest, f"cas/{test}/index.html", page(f"Test {test}", corps, 2, "cas"))
         for entree in entrees:
             slug = entree["id"].split("/", 1)[1]
             source = f"../../../cas/rgaa-4.1.2/{test}/{slug}/page.html"
             blocs = [
+                f'<a class="retour" href="index.html">Retour au test {echapper(test)}</a>',
+                f'<p class="surtitre">{echapper(test)}</p>',
                 f"<h1>{echapper(entree['titre'])}</h1>",
-                f"<p>Verdict : {LIBELLES[entree['verdict']]}. Nature : {LIBELLES[entree['nature']]}. Statut : {LIBELLES[entree['statut']]}.</p>",
+                f'<p class="ligne-pilules">{pilules_entree(entree, nature=True)}</p>',
                 "<dl>",
-                f"<dt>Test</dt><dd><a href=\"{echapper(entree['methode'])}\">{echapper(entree['test'])}</a></dd>",
+                f'<dt>Test</dt><dd><a href="{echapper(entree["methode"])}">{echapper(entree["test"])}</a></dd>',
                 f"<dt>Modalités</dt><dd>{echapper(', '.join(entree['modalites']))}</dd>",
                 "</dl>",
+                '<div class="feuille">',
                 "<h2>Motif</h2>",
                 f"<p>{echapper(entree['motif'])}</p>",
+                "</div>",
             ]
             if entree.get("pieges"):
                 blocs.append("<h2>Pièges</h2><ul>")
                 blocs.extend(f"<li>{echapper(piege)}</li>" for piege in entree["pieges"])
                 blocs.append("</ul>")
             if entree.get("desaccords"):
-                blocs.append("<h2>Lectures</h2>")
+                cartes = []
                 for lecture in entree["desaccords"]:
-                    blocs.append(f"<h3>{echapper(lecture['lecture'])}</h3>")
-                    blocs.append(f"<p>{echapper(lecture['motif'])}</p>")
-            blocs.append(f"<p><a href=\"{source}\">Ouvrir la page du cas</a></p>")
-            protocole = connus[test]["protocole"]
-            if protocole:
-                blocs.append(f"<p><a href=\"../../protocoles/{test}.html\">Protocole {echapper(test)}</a></p>")
+                    cartes.append(
+                        "<div><h3>"
+                        + echapper(lecture["lecture"])
+                        + "</h3><p>"
+                        + echapper(lecture["motif"])
+                        + "</p></div>"
+                    )
+                blocs.append('<h2>Lectures</h2><div class="lectures">' + "".join(cartes) + "</div>")
+            actions = [f'<a class="action" href="{source}">Ouvrir la page minimale</a>']
+            if connus[test]["protocole"]:
+                actions.append(
+                    f'<a class="action" href="../../protocoles/{echapper(test)}.html">Protocole {echapper(test)}</a>'
+                )
+            blocs.append('<p class="actions">' + "".join(actions) + "</p>")
             ecrire(
                 dest,
                 f"cas/{test}/{slug}.html",
-                page(entree["titre"], "\n".join(blocs), 2),
+                page(entree["titre"], "\n".join(blocs), 2, "cas"),
             )
-    lignes = ["<h1>Protocoles</h1>", "<ul>"]
     chemins = sorted(banc.CHEMIN_PROTOCOLES.glob("*.md"), key=lambda chemin: banc.cle_tri(chemin.stem))
-    for chemin in chemins:
-        meta, _corps = banc.decouper_protocole(chemin.read_text(encoding="utf-8"))
-        lignes.append(
-            f"<li><a href=\"{chemin.stem}.html\">{echapper(chemin.stem)}</a> — {LIBELLES[meta['nature']]}</li>"
-        )
-    lignes.append("</ul>")
-    ecrire(dest, "protocoles/index.html", page("Protocoles", "\n".join(lignes), 1))
-    for chemin in chemins:
-        meta, corps = banc.decouper_protocole(chemin.read_text(encoding="utf-8"))
-        blocs = [
-            f"<h1>Protocole {echapper(meta['test'])}</h1>",
-            f"<p>Nature : {LIBELLES[meta['nature']]}.</p>",
-            f"<p><a href=\"{echapper(meta['methode'])}\">Test dans la méthode officielle</a></p>",
-            "<h2>Ce qu'une machine peut établir</h2>",
-            f"<p>{echapper(meta['machine'])}</p>",
-            "<h2>Ce qu'une personne tranche</h2>",
-            f"<p>{echapper(meta['personne'])}</p>",
-            markdown_simple(corps),
-        ]
-        ecrire(dest, f"protocoles/{chemin.stem}.html", page(f"Protocole {meta['test']}", "\n".join(blocs), 1))
-    lignes = [
-        f"<h1>{echapper(echantillon['titre'])}</h1>",
-        f"<p>{echapper(echantillon['taux_motif'])}</p>",
-        "<h2>Pages</h2>",
-        "<ul>",
-    ]
-    for page_ech in echantillon["pages"]:
-        lignes.append(
-            f"<li><a href=\"../echantillons/vitrine/{echapper(page_ech['fichier'])}\">{echapper(page_ech['id'])}</a> — {echapper(', '.join(page_ech['motifs']))}</li>"
-        )
-    lignes.append("</ul>")
-    if echantillon["criteres"]:
-        lignes.append("<h2>Critères couverts</h2><ul>")
-        for critere in echantillon["criteres"]:
-            lignes.append(
-                f"<li>{echapper(critere['id'])} — {LIBELLES[critere['verdict']]}. {echapper(critere['motif'])}</li>"
+    metas = {
+        chemin.stem: banc.decouper_protocole(chemin.read_text(encoding="utf-8"))[0]
+        for chemin in chemins
+    }
+    sections = []
+    for theme in par_theme(index, lambda test: test["id"] in metas):
+        cartes = []
+        for test in theme["tests"]:
+            meta = metas[test["id"]]
+            cartes.append(
+                "<li><a href=\""
+                + echapper(test["id"])
+                + ".html\">"
+                + f'<span class="numero">{echapper(test["id"])}</span>'
+                + f'<span class="intitule">{echapper(test["intitule"])}</span>'
+                + f'<span class="ligne-pilules">{span_pilule(LIBELLES[meta["nature"]])}</span>'
+                + "</a></li>"
             )
-        lignes.append("</ul>")
-    ecrire(dest, "echantillon.html", page(echantillon["titre"], "\n".join(lignes), 0))
+        sections.append(
+            f"<section><h2>{echapper(theme['titre'])}</h2>"
+            f"<ul class=\"catalogue\">{''.join(cartes)}</ul></section>"
+        )
+    corps = "\n".join(
+        [
+            '<p class="surtitre">Méthode</p>',
+            "<h1>Protocoles</h1>",
+            "<p class=\"limite\">Un protocole dit ce qu" + APOS + "une machine peut établir, et ce qu"
+            + APOS + "une personne tranche. La nature du cas prime sur celle du protocole.</p>",
+            *sections,
+        ]
+    )
+    ecrire(dest, "protocoles/index.html", page("Protocoles", corps, 1, "protocoles"))
+    for chemin in chemins:
+        meta, corps_md = banc.decouper_protocole(chemin.read_text(encoding="utf-8"))
+        blocs = [
+            '<a class="retour" href="index.html">Retour aux protocoles</a>',
+            '<p class="surtitre">Protocole</p>',
+            f"<h1>{echapper(meta['test'])}</h1>",
+            f'<p class="ligne-pilules">{span_pilule(LIBELLES[meta["nature"]])}</p>',
+            f'<p class="limite">{echapper(connus[meta["test"]]["intitule"])}</p>',
+            f'<p><a href="{echapper(meta["methode"])}">Test officiel {echapper(meta["test"])}</a></p>',
+            '<div class="lectures">',
+            "<div><h2>Ce qu" + APOS + "une machine peut établir</h2>"
+            + f"<p>{echapper(meta['machine'])}</p></div>",
+            "<div><h2>Ce qu" + APOS + "une personne tranche</h2>"
+            + f"<p>{echapper(meta['personne'])}</p></div>",
+            "</div>",
+            '<div class="prose">',
+            markdown_simple(corps_md),
+            "</div>",
+        ]
+        ecrire(
+            dest,
+            f"protocoles/{chemin.stem}.html",
+            page(f"Protocole {meta['test']}", "\n".join(blocs), 1, "protocoles"),
+        )
+    cartes = []
+    for page_ech in echantillon["pages"]:
+        cartes.append(
+            '<li><a href="../echantillons/vitrine/'
+            + echapper(page_ech["fichier"])
+            + '">'
+            + f'<span class="numero">{echapper(page_ech["id"])}</span>'
+            + f'<span class="intitule">{echapper(", ".join(page_ech["motifs"]))}</span>'
+            + "</a></li>"
+        )
+    lignes = [
+        '<p class="surtitre">Vitrine</p>',
+        f"<h1>{echapper(echantillon['titre'])}</h1>",
+        f'<p class="limite">{echapper(echantillon["taux_motif"])}</p>',
+        "<h2>Pages</h2>",
+        f'<ul class="catalogue compact">{"".join(cartes)}</ul>',
+    ]
+    if echantillon["criteres"]:
+        fiches = []
+        for critere in echantillon["criteres"]:
+            fiches.append(
+                "<li>"
+                + f'<span class="ligne-pilules">{span_pilule(LIBELLES[critere["verdict"]])}</span>'
+                + f"<strong>{echapper(critere['id'])}</strong>"
+                + f'<span class="intitule">{echapper(critere["motif"])}</span>'
+                + "</li>"
+            )
+        lignes.append("<h2>Critères couverts</h2>")
+        lignes.append(f'<ul class="pile">{"".join(fiches)}</ul>')
+    ecrire(dest, "echantillon.html", page(echantillon["titre"], "\n".join(lignes), 0, "echantillon"))
 
 
 def verifier() -> int:
@@ -285,6 +495,11 @@ def verifier() -> int:
             if not filecmp.cmp(dest / relatif, SITE / relatif, shallow=False):
                 print(f"Contenu différent : {relatif}")
                 return 1
+    accueil = banc.RACINE / "index.html"
+    html = vitrine.rendre()
+    if not accueil.is_file() or accueil.read_text(encoding="utf-8") != html:
+        print("index.html n'est pas à jour. Relancer : python3 outils/site.py")
+        return 1
     print("Site à jour.")
     return 0
 
@@ -295,6 +510,7 @@ def main() -> int:
     if SITE.exists():
         shutil.rmtree(SITE)
     construire(SITE)
+    (banc.RACINE / "index.html").write_text(vitrine.rendre(), encoding="utf-8")
     print("Site écrit.")
     return 0
 

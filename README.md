@@ -44,7 +44,7 @@ Le tableau est produit par `python3 outils/couverture.py`. Il compte les cas `re
 
 ## Lire un cas
 
-Les cas sont dans `cas/rgaa-4.1.2/<test>/<slug>/`. `cas.json` porte le verdict. `page.html` s'ouvre dans un navigateur. Le site statique `site/index.html` reprend le motif, le protocole et le lien vers la page.
+Les cas sont dans `cas/rgaa-4.1.2/<test>/<slug>/`. `cas.json` porte le verdict. `page.html` s'ouvre dans un navigateur. La page d'accueil est `index.html`, produite par `python3 outils/site.py`. Le flux `.github/workflows/pages.yml` la publie sur GitHub Pages une fois Pages activé, source « GitHub Actions ». Un dépôt privé sur l'offre gratuite ne peut pas servir Pages : la publication attend que le dépôt soit public, ou une offre qui inclut Pages pour les dépôts privés. `site/` reprend chaque motif et chaque protocole.
 
 Les champs qui comptent : `verdict`, `nature`, `modalites`, `motif`, `methode`, `statut`. Le détail est dans `schema/cas.schema.json`.
 

@@ -10,6 +10,7 @@ Une contribution utile est un cas, un protocole, ou un correctif des outils. Le 
 4. Remplir `cas.json`. Le motif explique le verdict à partir du test officiel, en 80 à 2 000 caractères. L'URL `methode` est celle de ce test.
 5. Laisser `statut` à `brouillon`.
 6. Lancer `python3 outils/valider.py`.
+7. Régénérer la page d'accueil et le site : `python3 outils/couverture.py` puis `python3 outils/site.py`.
 
 Quand le test le permet, proposer la paire : un cas conforme et un cas non conforme. Si deux lectures restent défendables après lecture de la méthode, le verdict est `non_tranche` et `desaccords` contient les deux lectures.
 
