@@ -295,8 +295,25 @@ button {
   padding: 0.55rem 1rem;
   cursor: pointer;
 }
+textarea, input[type="file"] {
+  font: inherit;
+  width: min(40rem, 100%);
+  margin: 0 0 0.8rem;
+}
+textarea {
+  font-family: var(--mono);
+  padding: 0.8rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: var(--blanc);
+  color: var(--encre);
+  box-shadow: var(--ombre);
+}
+#resultat-score:empty { display: none; }
+#forme-prediction button { margin-top: 0.4rem; }
 .js-seul { display: none; }
 html.js .js-seul { display: inline-block; }
+html.js form.js-seul { display: block; }
 .annonce { color: var(--second); font-size: 0.95rem; }
 .si-etroit { display: none; }
 @media (max-width: 860px) { .si-etroit { display: block; } }
@@ -503,12 +520,12 @@ figcaption { margin-top: 0.85rem; max-width: 46rem; }
 
   <h2>Chercher un test</h2>
   <p class="texte">La page jugée est minimale : le motif vaut pour cette page, pas pour un service en cours d’audit. La plupart des @@TESTS@@ tests n’ont ni cas ni protocole, et cette absence n’est pas un échec de la page auditée.</p>
-  <form class="recherche" role="search" id="forme-test" action="#auditer" method="get">
+  <form class="recherche" role="search" id="forme-test" action="site/methode.html" method="get">
     <label for="numero">Numéro de test</label>
-    <input id="numero" name="numero" type="search" placeholder="6.1.1" autocomplete="off" spellcheck="false">
+    <input id="numero" name="numero" type="search" placeholder="6.1.1 ou doctype" autocomplete="off" spellcheck="false">
+    <button type="submit">Voir sur la carte</button>
   </form>
-  <p class="annonce">Sans script, les exemples restent tous visibles. Avec script, le champ filtre ces exemples sur le numéro. <a href="site/cas/index.html">Le catalogue</a> liste les cas déjà écrits.</p>
-  <p id="aucun" hidden>Pas d’exemple illustré pour <span id="aucun-numero"></span>. <a href="site/cas/index.html">Les cas déjà écrits</a> sont dans le catalogue. La plupart des tests n’ont ni cas ni protocole.</p>
+  <p class="annonce">Le champ ouvre <a href="site/methode.html">la carte des 258 tests</a>. Les exemples ci-dessous restent visibles. <a href="site/cas/index.html">Le catalogue</a> liste les cas déjà écrits.</p>
 
   <article data-test="6.1.1">
     <h3>6.1.1 — Intitulé de lien</h3>
@@ -559,7 +576,8 @@ figcaption { margin-top: 0.85rem; max-width: 46rem; }
 
   <h2>File de relecture</h2>
   <p class="texte">@@PHRASE_FILE@@</p>
-  <p class="texte">La page minimale s’ouvre d’abord, puis le motif. La personne qui a écrit le cas ne passe pas le statut à « revu ». Une autre personne écrit, dans la demande de fusion : « relu sur le test X.Y.Z le AAAA-MM-JJ ». Trois réponses : d’accord avec le verdict proposé ; pas d’accord, avec un motif ; deux lectures défendables, et le verdict à proposer est alors non tranché.</p>
+  <p class="texte">Chaque ligne ouvre la fiche, la page minimale, et le protocole quand il existe. La personne qui a écrit le cas ne passe pas le statut à « revu ». Une autre personne écrit, dans la demande de fusion : « relu sur le test X.Y.Z le AAAA-MM-JJ ». Trois réponses : d’accord avec le verdict proposé ; pas d’accord, avec un motif ; deux lectures défendables, et le verdict à proposer est alors non tranché.</p>
+  <p class="texte"><a href="CONTRIBUTING.md">Le guide</a> dit comment déposer un cas. <a href="https://github.com/dz9oo/banc-rgaa/issues/new?template=cas.yml&amp;title=Cas%20%3A%20">Proposer un cas</a> ouvre le formulaire du dépôt, une fois qu’il est public.</p>
   <p class="texte">Le piège est de lire « pas d’image » comme une image non conforme. Le statut « Brouillon » se lit avant le verdict, qui ne se cite pas.</p>
 
   @@BLOC_ABSENCE@@
@@ -607,7 +625,18 @@ figcaption { margin-top: 0.85rem; max-width: 46rem; }
 }</code></pre>
   <p><button type="button" class="js-seul" id="copier">Copier l’exemple</button> <span id="copie-statut" role="status"></span></p>
   <pre><code>python3 outils/scorer.py ma-lecture.json</code></pre>
-  <p class="texte">Le schéma est <a href="schema/prediction.schema.json"><code>schema/prediction.schema.json</code></a>. L’exemple tenu par le dépôt, <a href="exemples/prediction-parfaite.json"><code>exemples/prediction-parfaite.json</code></a>, vérifie le scoreur. Il ne classe pas un outil.</p>
+  <p class="texte">Le schéma est <a href="schema/prediction.schema.json"><code>schema/prediction.schema.json</code></a>. L’exemple tenu par le dépôt, <a href="exemples/prediction-parfaite.json"><code>exemples/prediction-parfaite.json</code></a>, vérifie le scoreur. Il ne classe pas un outil. L’oracle lu par la page est <a href="exemples/oracle-score.json"><code>exemples/oracle-score.json</code></a>.</p>
+  <h2>Déposer une lecture</h2>
+  <p class="texte">Rien n’est envoyé. Une prédiction ne devient pas un cas revu. Sans script, la commande ci-dessus reste le calcul.</p>
+  <form class="js-seul" id="forme-prediction" action="#mesurer" method="post">
+    <label for="prediction">Prédiction JSON</label>
+    <textarea id="prediction" rows="12" spellcheck="false"></textarea>
+    <label for="fichier-prediction">ou un fichier local</label>
+    <input id="fichier-prediction" type="file" accept="application/json,.json">
+    <button type="submit">Lire l’accord</button>
+  </form>
+  <pre id="resultat-score" tabindex="0" role="status"></pre>
+  <script type="application/json" id="oracle-score">@@ORACLE@@</script>
   <p class="texte">L’entrée d’un outil est <code>page.html</code>, avec la capture lorsqu’il y en a une. Le motif dans <code>cas.json</code> est le corrigé. Les deux ne se mélangent pas.</p>
 
   <h2>Ce qu’une nature demande</h2>
@@ -673,6 +702,7 @@ figcaption { margin-top: 0.85rem; max-width: 46rem; }
 @@PASTILLES@@
 </ul>
   <p class="texte">@@PHRASE_DEUX_CHIFFRES@@</p>
+  <p class="texte"><a href="site/methode.html">La carte des tests</a> liste chacun des @@TESTS@@ tests : au moins un cas revu, brouillon seulement, ou pas de cas.</p>
   <ul class="tiroirs">
 @@TIROIRS@@
 </ul>
@@ -689,33 +719,10 @@ figcaption { margin-top: 0.85rem; max-width: 46rem; }
   </aside>
 </section>
 </main>
-<p class="pied">Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
+<p class="pied">Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0. @@FRAICHEUR@@</p>
+<script src="outils/score-page.js"></script>
 <script>
-document.documentElement.classList.add("js");
 (function () {
-  var champ = document.getElementById("numero");
-  var articles = Array.prototype.slice.call(document.querySelectorAll("[data-test]"));
-  var aucun = document.getElementById("aucun");
-  var numero = document.getElementById("aucun-numero");
-  var forme = document.getElementById("forme-test");
-  function filtrer() {
-    var q = champ.value.trim().toLowerCase();
-    var n = 0;
-    articles.forEach(function (article) {
-      var id = article.getAttribute("data-test");
-      var montrer = q === "" || id.indexOf(q) === 0;
-      article.hidden = !montrer;
-      if (montrer) n += 1;
-    });
-    aucun.hidden = q === "" || n !== 0;
-    numero.textContent = q;
-  }
-  forme.addEventListener("submit", function (event) {
-    event.preventDefault();
-    filtrer();
-  });
-  champ.addEventListener("input", filtrer);
-  filtrer();
   var bouton = document.getElementById("copier");
   var statut = document.getElementById("copie-statut");
   bouton.addEventListener("click", function () {

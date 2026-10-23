@@ -12,6 +12,7 @@
 <a class="marque" href="../../../index.html">Banc d’essai</a>
 <nav class="site-nav" aria-label="Navigation du banc">
 <a href="../../../index.html">Accueil</a>
+<a href="../../methode.html">Méthode</a>
 <a href="../../cas/index.html" aria-current="page">Cas</a>
 <a href="../../protocoles/index.html">Protocoles</a>
 <a href="../../echantillon.html">Échantillon</a>
@@ -25,18 +26,35 @@
 <dl>
 <dt>Test</dt><dd><a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.1">3.2.1</a></dd>
 <dt>Modalités</dt><dd>html, capture</dd>
+<dt>Relecture</dt><dd>22 octobre 2026</dd>
 </dl>
 <div class="feuille">
 <h2>Motif</h2>
 <p>Le seul texte visible est peint dans texte.png : #b4b4b4 sur #ffffff, 16 px, graisse 400, rapport 2,07:1. La page HTML ne déclare pas ces couleurs. La capture montre le rendu. Le test 3.2.1 inclut le texte en image sous 24 px sans graisse. Le seuil 4,5:1 n'est pas atteint. Relecture sur la page du test le 22 octobre 2026.</p>
 </div>
+<h2>Pièces visuelles</h2>
+<figure><img src="../../../cas/rgaa-4.1.2/3.2.1/texte-en-image/texte.png" alt="Texte peint dans une image, contraste insuffisant"><figcaption>texte.png</figcaption></figure>
+<figure><img src="../../../cas/rgaa-4.1.2/3.2.1/texte-en-image/capture.png" alt="Texte peint dans une image, contraste insuffisant"><figcaption>capture.png</figcaption></figure>
+<h2>Environnement</h2><dl>
+<dt>Navigateur</dt><dd>Chromium 154.0.8037.97 Arch Linux</dd>
+<dt>Viewport</dt><dd>1280×720</dd>
+<dt>Zoom</dt><dd>100 %</dd>
+</dl>
 <h2>Pièges</h2><ul>
 <li>Lire seulement les couleurs CSS rate ce cas : le texte jugé est dans les pixels de l'image.</li>
 </ul>
+<h2>Autres cas de ce test</h2><ul>
+<li><a href="contraste-insuffisant.html"><span class="pilule">Revu</span> <span class="pilule">Non conforme</span> Texte gris #777777 sur fond blanc</a></li>
+<li><a href="contraste-suffisant.html"><span class="pilule">Revu</span> <span class="pilule">Conforme</span> Texte #333333 sur fond blanc</a></li>
+</ul>
+<h2>Page minimale</h2>
+<p class="texte">Spécimen. La page jugée n’est pas modifiée.</p>
+<iframe class="specimen" title="Page minimale, Texte peint dans une image, contraste insuffisant" src="../../../cas/rgaa-4.1.2/3.2.1/texte-en-image/page.html"></iframe>
 <p class="actions"><a class="action" href="../../../cas/rgaa-4.1.2/3.2.1/texte-en-image/page.html">Ouvrir la page minimale</a><a class="action" href="../../protocoles/3.2.1.html">Protocole 3.2.1</a></p>
 </main>
 <footer class="pied">
 <p>Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
+<p>Généré le 2026-10-23 depuis le commit 0040bf1.</p>
 </footer>
 </body>
 </html>

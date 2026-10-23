@@ -67,6 +67,8 @@ def auto_test() -> int:
     calcul = banc.agreger(incomplet, index)
     if calcul["taux"] is not None or "1.1" not in calcul["taux_motif"] or calcul["criteres"]:
         return _echec("un test sans relevé devrait retenir le taux")
+    if calcul["manques"].get("1.1") != ["1.1.2"]:
+        return _echec("le test sans relevé devrait être nommé dans les manques")
     processus = ech(
         [
             {"page": "a", "test": "2.1.1", "verdict": "non_conforme", "cas": "x"},
@@ -110,6 +112,8 @@ def auto_test() -> int:
     calcul = banc.agreger(en_attente, index, {"revu-seulement"})
     if calcul["taux"] is not None or "2.1" not in calcul["taux_motif"]:
         return _echec("un relevé qui cite un cas non revu devrait laisser le critère ouvert")
+    if calcul["manques"].get("2.1") != ["2.1.1"]:
+        return _echec("un relevé non revu devrait laisser le test dans les manques")
     calcul = banc.agreger(en_attente, index, {"brouillon"})
     if calcul["taux"] != 100:
         return _echec("un relevé dont le cas est revu devrait couvrir le critère")
