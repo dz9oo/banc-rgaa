@@ -1,0 +1,1569 @@
+{
+  "grille": [
+    {
+      "id": "1.2.1/alt-nom-de-fichier",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "1.2.1"
+    },
+    {
+      "id": "1.2.1/alt-vide",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "1.2.1"
+    },
+    {
+      "id": "1.2.1/sans-image",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.1"
+    },
+    {
+      "id": "1.2.2/sans-zone",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.2"
+    },
+    {
+      "id": "1.2.3/sans-objet",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.3"
+    },
+    {
+      "id": "1.2.4/sans-svg",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.4"
+    },
+    {
+      "id": "1.2.5/sans-canvas",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.5"
+    },
+    {
+      "id": "1.2.6/sans-embed",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.2.6"
+    },
+    {
+      "id": "1.3.1/alt-image",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "1.3.1"
+    },
+    {
+      "id": "1.3.1/alt-pertinent",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "1.3.1"
+    },
+    {
+      "id": "1.3.1/sans-image",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.1"
+    },
+    {
+      "id": "1.3.2/sans-zone",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.2"
+    },
+    {
+      "id": "1.3.3/sans-bouton-image",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.3"
+    },
+    {
+      "id": "1.3.4/sans-objet",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.4"
+    },
+    {
+      "id": "1.3.5/sans-embed",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.5"
+    },
+    {
+      "id": "1.3.6/sans-svg",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.6"
+    },
+    {
+      "id": "1.3.7/sans-canvas",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.7"
+    },
+    {
+      "id": "1.3.8/sans-canvas",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "deterministe",
+      "test": "1.3.8"
+    },
+    {
+      "id": "1.3.9/alt-court",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "1.3.9"
+    },
+    {
+      "id": "1.3.9/sans-image",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "1.3.9"
+    },
+    {
+      "id": "3.2.1/contraste-insuffisant",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "3.2.1"
+    },
+    {
+      "id": "3.2.1/contraste-suffisant",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "3.2.1"
+    },
+    {
+      "id": "3.2.1/texte-en-image",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "vision",
+      "test": "3.2.1"
+    },
+    {
+      "id": "3.2.2/sans-texte-gras",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "deterministe",
+      "test": "3.2.2"
+    },
+    {
+      "id": "3.2.3/contraste-suffisant",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "3.2.3"
+    },
+    {
+      "id": "3.2.3/sans-grand-texte",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "deterministe",
+      "test": "3.2.3"
+    },
+    {
+      "id": "3.2.4/contraste-suffisant",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "3.2.4"
+    },
+    {
+      "id": "3.2.5/sans-mecanisme",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "deterministe",
+      "test": "3.2.5"
+    },
+    {
+      "id": "4.13.1/lecteur-audio",
+      "statut": "brouillon",
+      "verdict": "non_conforme",
+      "nature": "restitution",
+      "test": "4.13.1"
+    },
+    {
+      "id": "6.1.1/cliquez-ici",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/cliquez-ici-dans-la-phrase",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/contacter-le-service",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/lire-la-suite-seul",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/lire-la-suite-sous-article",
+      "statut": "revu",
+      "verdict": "non_tranche",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/lire-la-suite-sous-horaires",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.1/mentions-legales",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "6.1.1"
+    },
+    {
+      "id": "6.1.2/sans-lien-image",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "6.1.2"
+    },
+    {
+      "id": "6.1.3/sans-lien-composite",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "6.1.3"
+    },
+    {
+      "id": "6.1.4/sans-lien-svg",
+      "statut": "brouillon",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "6.1.4"
+    },
+    {
+      "id": "6.1.5/nom-contient-visible",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "6.1.5"
+    },
+    {
+      "id": "6.2.1/intitule-present",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "6.2.1"
+    },
+    {
+      "id": "6.2.1/lien-vide",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "6.2.1"
+    },
+    {
+      "id": "8.1.1/doctype-absent",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "8.1.1"
+    },
+    {
+      "id": "8.1.1/doctype-html",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "8.1.1"
+    },
+    {
+      "id": "8.1.2/doctype-html",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "8.1.2"
+    },
+    {
+      "id": "8.1.3/doctype-avant-html",
+      "statut": "brouillon",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "8.1.3"
+    },
+    {
+      "id": "8.3.1/langue-absente",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "8.3.1"
+    },
+    {
+      "id": "8.3.1/langue-fr",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "8.3.1"
+    },
+    {
+      "id": "8.5.1/titre-absent",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "8.5.1"
+    },
+    {
+      "id": "8.5.1/titre-present",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "8.5.1"
+    },
+    {
+      "id": "8.6.1/titre-bienvenue",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "8.6.1"
+    },
+    {
+      "id": "8.6.1/titre-contact-seul",
+      "statut": "revu",
+      "verdict": "non_tranche",
+      "nature": "pertinence",
+      "test": "8.6.1"
+    },
+    {
+      "id": "8.6.1/titre-service",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "8.6.1"
+    },
+    {
+      "id": "10.7.1/focus-absent",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "geste",
+      "test": "10.7.1"
+    },
+    {
+      "id": "10.7.1/focus-visible",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "geste",
+      "test": "10.7.1"
+    },
+    {
+      "id": "11.9.1/bouton-ok",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "pertinence",
+      "test": "11.9.1"
+    },
+    {
+      "id": "11.9.1/envoyer-le-message",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "pertinence",
+      "test": "11.9.1"
+    },
+    {
+      "id": "11.9.1/sans-bouton",
+      "statut": "revu",
+      "verdict": "non_applicable",
+      "nature": "pertinence",
+      "test": "11.9.1"
+    },
+    {
+      "id": "11.9.2/nom-contient-visible",
+      "statut": "revu",
+      "verdict": "conforme",
+      "nature": "deterministe",
+      "test": "11.9.2"
+    },
+    {
+      "id": "11.9.2/nom-remplace-visible",
+      "statut": "revu",
+      "verdict": "non_conforme",
+      "nature": "deterministe",
+      "test": "11.9.2"
+    },
+    {
+      "id": "11.9.2/sans-bouton",
+      "statut": "revu",
+      "verdict": "non_applicable",
+      "nature": "deterministe",
+      "test": "11.9.2"
+    }
+  ],
+  "jeux": {
+    "parfaite": {
+      "prediction": {
+        "outil": "lecture-parfaite",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "1.2.1/alt-nom-de-fichier",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "1.2.1/alt-vide",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "1.3.1/alt-image",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "1.3.1/alt-pertinent",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "3.2.1/contraste-insuffisant",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "3.2.1/contraste-suffisant",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "3.2.1/texte-en-image",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "6.1.1/cliquez-ici",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "6.1.1/cliquez-ici-dans-la-phrase",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.1.1/contacter-le-service",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.1.1/lire-la-suite-seul",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "6.1.1/lire-la-suite-sous-article",
+            "verdict": "non_tranche"
+          },
+          {
+            "cas": "6.1.1/lire-la-suite-sous-horaires",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.1.1/mentions-legales",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.2.1/intitule-present",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.2.1/lien-vide",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.1.1/doctype-absent",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.1.1/doctype-html",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "8.3.1/langue-absente",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.3.1/langue-fr",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "8.5.1/titre-absent",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.5.1/titre-present",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "8.6.1/titre-bienvenue",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.6.1/titre-contact-seul",
+            "verdict": "non_tranche"
+          },
+          {
+            "cas": "8.6.1/titre-service",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "10.7.1/focus-absent",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "10.7.1/focus-visible",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "11.9.1/bouton-ok",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "11.9.1/envoyer-le-message",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "11.9.1/sans-bouton",
+            "verdict": "non_applicable"
+          },
+          {
+            "cas": "11.9.2/nom-contient-visible",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "11.9.2/nom-remplace-visible",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "11.9.2/sans-bouton",
+            "verdict": "non_applicable"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-parfaite",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 31,
+        "accords": 31,
+        "accord": 100,
+        "silences": 0,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 13,
+            "accords": 13,
+            "silences": 0,
+            "accord": 100
+          },
+          "geste": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "pertinence": {
+            "tentes": 15,
+            "accords": 15,
+            "silences": 0,
+            "accord": 100
+          },
+          "vision": {
+            "tentes": 1,
+            "accords": 1,
+            "silences": 0,
+            "accord": 100
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "1.3.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "3.2.1": {
+            "tentes": 3,
+            "accords": 3,
+            "silences": 0,
+            "accord": 100
+          },
+          "6.1.1": {
+            "tentes": 6,
+            "accords": 6,
+            "silences": 0,
+            "accord": 100
+          },
+          "6.2.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "8.1.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "8.3.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "8.5.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "8.6.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "10.7.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "11.9.1": {
+            "tentes": 3,
+            "accords": 3,
+            "silences": 0,
+            "accord": 100
+          },
+          "11.9.2": {
+            "tentes": 3,
+            "accords": 3,
+            "silences": 0,
+            "accord": 100
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "silencieuse": {
+      "prediction": {
+        "outil": "lecture-vide",
+        "date": "2026-10-22",
+        "predictions": []
+      },
+      "resultat": {
+        "outil": "lecture-vide",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 0,
+        "accords": 0,
+        "accord": null,
+        "silences": 31,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 15,
+            "accord": null
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "vitrine": {
+      "prediction": {
+        "outil": "mes-regles-0.3",
+        "date": "2026-10-23",
+        "predictions": [
+          {
+            "cas": "8.1.1/doctype-absent",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "8.1.1/doctype-html",
+            "verdict": "conforme"
+          },
+          {
+            "cas": "6.1.1/lire-la-suite-sous-article",
+            "verdict": "non_tranche"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "mes-regles-0.3",
+        "date": "2026-10-23",
+        "or_tranches": 31,
+        "tentes": 2,
+        "accords": 2,
+        "accord": 100,
+        "silences": 29,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 11,
+            "accord": 100
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 15,
+            "accord": null
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 2,
+            "accords": 2,
+            "silences": 0,
+            "accord": 100
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "fausse": {
+      "prediction": {
+        "outil": "lecture-fausse",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "1.2.1/alt-nom-de-fichier",
+            "verdict": "conforme"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-fausse",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 1,
+        "accords": 0,
+        "accord": 0,
+        "silences": 30,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 1,
+            "accords": 0,
+            "silences": 14,
+            "accord": 0
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 1,
+            "accords": 0,
+            "silences": 1,
+            "accord": 0
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "tranchage": {
+      "prediction": {
+        "outil": "lecture-forcee",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "6.1.1/lire-la-suite-sous-article",
+            "verdict": "conforme"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-forcee",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 0,
+        "accords": 0,
+        "accord": null,
+        "silences": 31,
+        "non_tranches": 2,
+        "abstentions": 1,
+        "tranchages": 1,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 15,
+            "accord": null
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "brouillon": {
+      "prediction": {
+        "outil": "lecture-brouillon",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "4.13.1/lecteur-audio",
+            "verdict": "non_conforme"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-brouillon",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 0,
+        "accords": 0,
+        "accord": null,
+        "silences": 31,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 15,
+            "accord": null
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "verdict_manquant": {
+      "prediction": {
+        "outil": "lecture-sans-verdict",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "1.2.1/alt-nom-de-fichier"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-sans-verdict",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 1,
+        "accords": 0,
+        "accord": 0,
+        "silences": 30,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 1,
+            "accords": 0,
+            "silences": 14,
+            "accord": 0
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 1,
+            "accords": 0,
+            "silences": 1,
+            "accord": 0
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": []
+      }
+    },
+    "doublon": {
+      "prediction": {
+        "outil": "lecture-double",
+        "date": "2026-10-22",
+        "predictions": [
+          {
+            "cas": "1.2.1/alt-nom-de-fichier",
+            "verdict": "non_conforme"
+          },
+          {
+            "cas": "1.2.1/alt-nom-de-fichier",
+            "verdict": "non_conforme"
+          }
+        ]
+      },
+      "resultat": {
+        "outil": "lecture-double",
+        "date": "2026-10-22",
+        "or_tranches": 31,
+        "tentes": 1,
+        "accords": 1,
+        "accord": 100,
+        "silences": 30,
+        "non_tranches": 2,
+        "abstentions": 2,
+        "tranchages": 0,
+        "par_nature": {
+          "deterministe": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 13,
+            "accord": null
+          },
+          "geste": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "pertinence": {
+            "tentes": 1,
+            "accords": 1,
+            "silences": 14,
+            "accord": 100
+          },
+          "vision": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 1,
+            "accord": null
+          }
+        },
+        "par_test": {
+          "1.2.1": {
+            "tentes": 1,
+            "accords": 1,
+            "silences": 1,
+            "accord": 100
+          },
+          "1.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "3.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "6.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 6,
+            "accord": null
+          },
+          "6.2.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.1.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.3.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.5.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "8.6.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "10.7.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 2,
+            "accord": null
+          },
+          "11.9.1": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          },
+          "11.9.2": {
+            "tentes": 0,
+            "accords": 0,
+            "silences": 3,
+            "accord": null
+          }
+        },
+        "erreurs": [
+          "prédiction doublée : 1.2.1/alt-nom-de-fichier"
+        ]
+      }
+    }
+  }
+}

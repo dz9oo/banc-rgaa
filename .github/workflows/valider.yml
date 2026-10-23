@@ -12,10 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Contrats, score et site
         run: |
           python3 outils/valider.py
           python3 outils/scorer.py --auto-test
           python3 outils/agregar.py --auto-test
           python3 outils/couverture.py --verifier
+          node --test outils/score-page.test.js outils/carte-filtre.test.js
           python3 outils/site.py --verifier

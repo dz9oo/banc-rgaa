@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Produit le site statique de lecture."""
 
-import filecmp
 import re
 import shutil
 import sys
@@ -11,6 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import banc
+import carte
 import vitrine
 
 SITE = banc.RACINE / "site"
@@ -218,6 +218,7 @@ def page(titre: str, corps: str, profondeur: int, courant: str) -> str:
     navigation = "\n".join(
         [
             item("", f"{vers_racine}index.html", "Accueil"),
+            item("methode", f"{vers_site}methode.html", "Méthode"),
             item("cas", f"{vers_site}cas/index.html", "Cas"),
             item("protocoles", f"{vers_site}protocoles/index.html", "Protocoles"),
             item("echantillon", f"{vers_site}echantillon.html", "Échantillon"),
@@ -244,10 +245,37 @@ def page(titre: str, corps: str, profondeur: int, courant: str) -> str:
 </main>
 <footer class="pied">
 <p>Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
+<p>{echapper(banc.phrase_fraicheur())}</p>
 </footer>
 </body>
 </html>
 """
+
+
+IMAGES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
+LIBELLES_ENV = {"navigateur": "Navigateur", "viewport": "Viewport", "zoom": "Zoom"}
+
+
+def lier_identifiants(html: str, connus: set[str]) -> str:
+    def remplace(trouve: re.Match) -> str:
+        identifiant = trouve.group(1)
+        if identifiant not in connus:
+            return trouve.group(0)
+        test, slug = identifiant.split("/", 1)
+        return f'<a href="../cas/{test}/{slug}.html"><code>{echapper(identifiant)}</code></a>'
+
+    return re.sub(r"<code>(\d+\.\d+\.\d+/[a-z0-9-]+)</code>", remplace, html)
+
+
+def json_fraicheur() -> str:
+    info = banc.fraicheur()
+    return (
+        "{\n"
+        f'  "date": "{info["date"]}",\n'
+        f'  "commit": "{info["commit"]}",\n'
+        f'  "texte": "{banc.phrase_fraicheur()}"\n'
+        "}\n"
+    )
 
 
 def ecrire(dest: Path, relatif: str, contenu: str) -> None:
@@ -285,7 +313,10 @@ def construire(dest: Path) -> None:
     cas = banc.charger_cas()
     echantillon = banc.lire_json(banc.CHEMIN_ECHANTILLON)
     connus = banc.tests_par_id(index)
+    identifiants = {entree["id"] for entree in cas}
     ecrire(dest, "index.html", REDIRECTION)
+    ecrire(dest, "methode.html", page("Les tests", carte.corps(index, cas), 0, "methode"))
+    ecrire(dest, "donnees/fraicheur.json", json_fraicheur())
     groupes: dict[str, list] = {}
     for entree in cas:
         groupes.setdefault(entree["test"], []).append(entree)
@@ -356,12 +387,65 @@ def construire(dest: Path) -> None:
                 "<dl>",
                 f'<dt>Test</dt><dd><a href="{echapper(entree["methode"])}">{echapper(entree["test"])}</a></dd>',
                 f"<dt>Modalités</dt><dd>{echapper(', '.join(entree['modalites']))}</dd>",
-                "</dl>",
-                '<div class="feuille">',
-                "<h2>Motif</h2>",
-                f"<p>{echapper(entree['motif'])}</p>",
-                "</div>",
             ]
+            if entree.get("relecture"):
+                blocs.append(
+                    f"<dt>Relecture</dt><dd>{echapper(vitrine.date_fr(entree['relecture']))}</dd>"
+                )
+            blocs.extend(
+                [
+                    "</dl>",
+                    '<div class="feuille">',
+                    "<h2>Motif</h2>",
+                    f"<p>{echapper(entree['motif'])}</p>",
+                    "</div>",
+                ]
+            )
+            dossier = banc.CHEMIN_CAS / test / slug
+            figures = []
+            transcriptions = []
+            for nom in entree["fichiers"]:
+                if nom == "page.html":
+                    continue
+                href = f"../../../cas/rgaa-4.1.2/{test}/{slug}/{nom}"
+                suffixe = Path(nom).suffix.lower()
+                if suffixe in IMAGES:
+                    figures.append(
+                        "<figure>"
+                        f'<img src="{echapper(href)}" alt="{echapper(entree["titre"])}">'
+                        f"<figcaption>{echapper(nom)}</figcaption>"
+                        "</figure>"
+                    )
+                elif suffixe == ".txt":
+                    texte = (dossier / nom).read_text(encoding="utf-8") if (dossier / nom).is_file() else ""
+                    note = ""
+                    if "EXEMPLE" in texte:
+                        note = (
+                            " Cette transcription contient EXEMPLE. Aucune passe réelle n"
+                            + APOS
+                            + "est versée."
+                        )
+                    transcriptions.append(f'<p><a href="{echapper(href)}">{echapper(nom)}</a>.{note}</p>')
+            if figures:
+                blocs.append("<h2>Pièces visuelles</h2>")
+                blocs.extend(figures)
+            if transcriptions:
+                blocs.append("<h2>Transcription</h2>")
+                blocs.extend(transcriptions)
+            if entree.get("cibles"):
+                blocs.append("<h2>Cibles</h2><ul>")
+                blocs.extend(
+                    f'<li><code>{echapper(cible["selecteur"])}</code> {echapper(cible["note"])}</li>'
+                    for cible in entree["cibles"]
+                )
+                blocs.append("</ul>")
+            if entree.get("environnement"):
+                blocs.append("<h2>Environnement</h2><dl>")
+                for cle, valeur in entree["environnement"].items():
+                    blocs.append(
+                        f"<dt>{echapper(LIBELLES_ENV.get(cle, cle))}</dt><dd>{echapper(valeur)}</dd>"
+                    )
+                blocs.append("</dl>")
             if entree.get("pieges"):
                 blocs.append("<h2>Pièges</h2><ul>")
                 blocs.extend(f"<li>{echapper(piege)}</li>" for piege in entree["pieges"])
@@ -377,6 +461,28 @@ def construire(dest: Path) -> None:
                         + "</p></div>"
                     )
                 blocs.append('<h2>Lectures</h2><div class="lectures">' + "".join(cartes) + "</div>")
+            autres = [item for item in entrees if item["id"] != entree["id"]]
+            if autres:
+                blocs.append("<h2>Autres cas de ce test</h2><ul>")
+                for autre in autres:
+                    autre_slug = autre["id"].split("/", 1)[1]
+                    blocs.append(
+                        "<li><a href=\""
+                        + echapper(autre_slug)
+                        + ".html\">"
+                        + pilules_entree(autre, nature=False)
+                        + " "
+                        + echapper(autre["titre"])
+                        + "</a></li>"
+                    )
+                blocs.append("</ul>")
+            blocs.append("<h2>Page minimale</h2>")
+            blocs.append(
+                "<p class=\"texte\">Spécimen. La page jugée n" + APOS + "est pas modifiée.</p>"
+            )
+            blocs.append(
+                f'<iframe class="specimen" title="Page minimale, {echapper(entree["titre"])}" src="{source}"></iframe>'
+            )
             actions = [f'<a class="action" href="{source}">Ouvrir la page minimale</a>']
             if connus[test]["protocole"]:
                 actions.append(
@@ -437,8 +543,9 @@ def construire(dest: Path) -> None:
             + f"<p>{echapper(meta['personne'])}</p></div>",
             "</div>",
             '<div class="prose">',
-            markdown_simple(corps_md),
+            lier_identifiants(markdown_simple(corps_md), identifiants),
             "</div>",
+            "<p>La nature du cas prime sur celle du protocole.</p>",
         ]
         ecrire(
             dest,
@@ -455,16 +562,30 @@ def construire(dest: Path) -> None:
             + f'<span class="intitule">{echapper(", ".join(page_ech["motifs"]))}</span>'
             + "</a></li>"
         )
+    revus_ids = {entree["id"] for entree in cas if entree["statut"] == "revu"}
+    calcul = banc.agreger(echantillon, index, revus_ids)
+    if calcul["taux"] is None:
+        avertissement = (
+            "Ces verdicts sont la grille d" + APOS + "un service fictif. "
+            "Ce n" + APOS + "est pas une déclaration d" + APOS + "accessibilité. "
+            "Un taux non publié n" + APOS + "est pas un zéro."
+        )
+    else:
+        avertissement = (
+            "Ces verdicts sont la grille d" + APOS + "un service fictif. "
+            "Ce n" + APOS + "est pas une déclaration d" + APOS + "accessibilité."
+        )
     lignes = [
         '<p class="surtitre">Vitrine</p>',
         f"<h1>{echapper(echantillon['titre'])}</h1>",
-        f'<p class="limite">{echapper(echantillon["taux_motif"])}</p>',
+        f'<p class="limite">{echapper(calcul["taux_motif"])}</p>',
+        f'<p class="texte">{avertissement}</p>',
         "<h2>Pages</h2>",
         f'<ul class="catalogue compact">{"".join(cartes)}</ul>',
     ]
-    if echantillon["criteres"]:
+    if calcul["criteres"]:
         fiches = []
-        for critere in echantillon["criteres"]:
+        for critere in calcul["criteres"]:
             fiches.append(
                 "<li>"
                 + f'<span class="ligne-pilules">{span_pilule(LIBELLES[critere["verdict"]])}</span>'
@@ -474,7 +595,51 @@ def construire(dest: Path) -> None:
             )
         lignes.append("<h2>Critères couverts</h2>")
         lignes.append(f'<ul class="pile">{"".join(fiches)}</ul>')
+    if calcul["manques"]:
+        lignes.append("<h2>Critères ouverts</h2>")
+        lignes.append(
+            "<p class=\"texte\">Un critère ouvert n"
+            + APOS
+            + "a pas, sur chaque page, un relevé qui cite un cas revu.</p>"
+        )
+        ouverts = []
+        for critere, tests_manquants in sorted(calcul["manques"].items(), key=lambda item: banc.cle_tri(item[0])):
+            liens_tests = []
+            for test_id in tests_manquants:
+                lien = f'<a href="{echapper(connus[test_id]["methode"])}">{echapper(test_id)}</a>'
+                if test_id in groupes:
+                    lien += f' <a href="cas/{echapper(test_id)}/index.html">cas</a>'
+                liens_tests.append(lien)
+            ouverts.append(
+                "<li>"
+                + span_pilule("Ouvert", "ouvert")
+                + f"<strong>{echapper(critere)}</strong>"
+                + f'<span class="intitule">{" · ".join(liens_tests)}</span>'
+                + "</li>"
+            )
+        lignes.append(f'<ul class="pile">{"".join(ouverts)}</ul>')
     ecrire(dest, "echantillon.html", page(echantillon["titre"], "\n".join(lignes), 0, "echantillon"))
+
+
+def verifier_fiches(dest: Path) -> None:
+    vision = (dest / "cas/3.2.1/texte-en-image.html").read_text(encoding="utf-8")
+    if "capture.png" not in vision or "Chromium" not in vision or "<iframe" not in vision:
+        raise RuntimeError("la fiche texte-en-image n'affiche pas la capture, l'environnement et la page")
+    geste = (dest / "cas/10.7.1/focus-absent.html").read_text(encoding="utf-8")
+    if "<code>a</code>" not in geste or "capture.png" not in geste:
+        raise RuntimeError("la fiche focus-absent n'affiche pas la cible ni la capture")
+    audio = (dest / "cas/4.13.1/lecteur-audio.html").read_text(encoding="utf-8")
+    if "transcription.txt" not in audio or "EXEMPLE" not in audio:
+        raise RuntimeError("la fiche audio ne signale pas la transcription d'exemple")
+    protocole = (dest / "protocoles/6.1.1.html").read_text(encoding="utf-8")
+    if "../cas/6.1.1/cliquez-ici.html" not in protocole or "La nature du cas prime" not in protocole:
+        raise RuntimeError("le protocole 6.1.1 ne lie pas ses cas")
+    page_echantillon = (dest / "echantillon.html").read_text(encoding="utf-8")
+    for critere in ("1.2", "1.3", "3.2", "6.1", "8.1"):
+        if f"<strong>{critere}</strong>" not in page_echantillon:
+            raise RuntimeError(f"le critère ouvert {critere} manque sur l'échantillon")
+    if "Ouvert" not in page_echantillon or "pas un zéro" not in page_echantillon:
+        raise RuntimeError("l'échantillon ne distingue pas un taux vide d'un zéro")
 
 
 def verifier() -> int:
@@ -492,12 +657,16 @@ def verifier() -> int:
             print("Commité :", ", ".join(droite))
             return 1
         for relatif in gauche:
-            if not filecmp.cmp(dest / relatif, SITE / relatif, shallow=False):
+            gauche_texte = (dest / relatif).read_text(encoding="utf-8")
+            droite_texte = (SITE / relatif).read_text(encoding="utf-8")
+            if banc.normaliser_fraicheur(gauche_texte) != banc.normaliser_fraicheur(droite_texte):
                 print(f"Contenu différent : {relatif}")
                 return 1
+        carte.verifier((dest / "methode.html").read_text(encoding="utf-8"), banc.charger_index(), banc.charger_cas())
+        verifier_fiches(dest)
     accueil = banc.RACINE / "index.html"
     html = vitrine.rendre()
-    if not accueil.is_file() or accueil.read_text(encoding="utf-8") != html:
+    if not accueil.is_file() or banc.normaliser_fraicheur(accueil.read_text(encoding="utf-8")) != banc.normaliser_fraicheur(html):
         print("index.html n'est pas à jour. Relancer : python3 outils/site.py")
         return 1
     print("Site à jour.")

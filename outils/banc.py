@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import subprocess
+from datetime import date
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
@@ -71,6 +74,66 @@ def ecrire_json(chemin: Path, donnees) -> None:
         json.dumps(donnees, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+_FRAICHEUR: dict | None = None
+
+
+def fraicheur() -> dict:
+    """Date et commit court de la génération.
+
+    Le commit affiché est celui de HEAD au moment où les pages sont écrites.
+    Le commit qui enregistre ensuite ces pages en a un autre : site.py --verifier
+    compare donc les textes une fois cette mention normalisée.
+    """
+
+    global _FRAICHEUR
+    if _FRAICHEUR is None:
+        _FRAICHEUR = _lire_fraicheur()
+    return dict(_FRAICHEUR)
+
+
+def _lire_fraicheur() -> dict:
+    commit = ""
+    jour = ""
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=RACINE,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        jour = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cs"],
+            cwd=RACINE,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        commit = ""
+    if not commit:
+        commit = os.environ.get("GITHUB_SHA", "").strip()[:7]
+    if not jour:
+        jour = date.today().isoformat()
+    if not commit:
+        commit = "local"
+    return {"date": jour, "commit": commit}
+
+
+def phrase_fraicheur() -> str:
+    info = fraicheur()
+    return f"Généré le {info['date']} depuis le commit {info['commit']}."
+
+
+def normaliser_fraicheur(texte: str) -> str:
+    texte = re.sub(
+        r"Généré le \d{4}-\d{2}-\d{2} depuis le commit \S+",
+        "Généré le DATE depuis le commit COMMIT",
+        texte,
+    )
+    texte = re.sub(r'"date": "\d{4}-\d{2}-\d{2}"', '"date": "DATE"', texte)
+    texte = re.sub(r'"commit": "[^"]+"', '"commit": "COMMIT"', texte)
+    return texte
 
 
 def cle_tri(identifiant: str) -> tuple:
@@ -509,6 +572,7 @@ def agreger(echantillon: dict, index: dict, cas_revus: set[str] | None = None) -
         "taux": taux,
         "taux_motif": motif,
         "detail_pages": verdicts_pages,
+        "manques": manques_par_critere,
     }
 
 

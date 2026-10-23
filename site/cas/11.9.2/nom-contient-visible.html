@@ -12,6 +12,7 @@
 <a class="marque" href="../../../index.html">Banc d’essai</a>
 <nav class="site-nav" aria-label="Navigation du banc">
 <a href="../../../index.html">Accueil</a>
+<a href="../../methode.html">Méthode</a>
 <a href="../../cas/index.html" aria-current="page">Cas</a>
 <a href="../../protocoles/index.html">Protocoles</a>
 <a href="../../echantillon.html">Échantillon</a>
@@ -25,15 +26,27 @@
 <dl>
 <dt>Test</dt><dd><a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#11.9.2">11.9.2</a></dd>
 <dt>Modalités</dt><dd>html</dd>
+<dt>Relecture</dt><dd>22 octobre 2026</dd>
 </dl>
 <div class="feuille">
 <h2>Motif</h2>
 <p>Le bouton affiche « Envoyer le message » et ne porte ni aria-label ni aria-labelledby. Le nom accessible est donc ce texte visible, qui le contient. Le test 11.9.2 est validé. La pertinence de l'intitulé est le test 11.9.1. Relecture sur la page du test le 22 octobre 2026.</p>
 </div>
+<h2>Cibles</h2><ul>
+<li><code>button</code> Sans aria-label</li>
+</ul>
+<h2>Autres cas de ce test</h2><ul>
+<li><a href="nom-remplace-visible.html"><span class="pilule">Revu</span> <span class="pilule">Non conforme</span> aria-label qui ne contient pas le texte visible</a></li>
+<li><a href="sans-bouton.html"><span class="pilule">Revu</span> <span class="pilule">Non applicable</span> Page sans bouton, test du nom accessible</a></li>
+</ul>
+<h2>Page minimale</h2>
+<p class="texte">Spécimen. La page jugée n’est pas modifiée.</p>
+<iframe class="specimen" title="Page minimale, Le nom accessible est le texte du bouton" src="../../../cas/rgaa-4.1.2/11.9.2/nom-contient-visible/page.html"></iframe>
 <p class="actions"><a class="action" href="../../../cas/rgaa-4.1.2/11.9.2/nom-contient-visible/page.html">Ouvrir la page minimale</a><a class="action" href="../../protocoles/11.9.2.html">Protocole 11.9.2</a></p>
 </main>
 <footer class="pied">
 <p>Les verdicts revus sont des lectures contributives. Les cas sont sous Licence Ouverte 2.0.</p>
+<p>Généré le 2026-10-23 depuis le commit 0040bf1.</p>
 </footer>
 </body>
 </html>

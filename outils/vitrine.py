@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import banc
+import scorer
 
 MODELE = Path(__file__).resolve().parent / "vitrine.modele.html"
 APOS = "\u2019"
@@ -203,14 +204,21 @@ def ligne_file(entree: dict) -> str:
     if entree["statut"] != "brouillon":
         raise RuntimeError(f"{entree['id']} est cité par la vitrine sans être un brouillon")
     test, slug = entree["id"].split("/", 1)
-    href = f"cas/rgaa-4.1.2/{test}/{slug}/page.html"
+    fiche = f"site/cas/{test}/{slug}.html"
+    page = f"cas/rgaa-4.1.2/{test}/{slug}/page.html"
+    liens = [
+        f'<a href="{fiche}"><code>{echapper(entree["id"])}</code></a>',
+        f'<a href="{page}">Page minimale</a>',
+    ]
+    if (banc.CHEMIN_PROTOCOLES / f"{test}.md").is_file():
+        liens.append(f'<a href="site/protocoles/{test}.html">Protocole</a>')
     titre = entree["titre"].replace("'", APOS)
     return (
         "<tr>"
         "<td>Brouillon</td>"
-        f'<td><a href="{href}"><code>{echapper(entree["id"])}</code></a></td>'
+        f"<td>{' '.join(liens)}</td>"
         f"<td>{echapper(titre)}</td>"
-        f"<td>{LIBELLES[entree['verdict']]}</td>"
+        f'<td><span class="propose">{echapper(LIBELLES[entree["verdict"]])} — non citable</span></td>'
         "</tr>"
     )
 
@@ -718,6 +726,11 @@ def rendre() -> str:
     tests_revus = sum(theme["avec"] for theme in themes)
     sans = sans_protocole_ni_cas(index, cas)
     exemple = lire_exemple(modele)
+    if exemple != scorer.VITRINE:
+        raise RuntimeError("l'exemple illustré n'est plus celui de l'oracle")
+    oracle = scorer.construire_oracle(cas)
+    if not scorer.ORACLE.is_file() or banc.lire_json(scorer.ORACLE) != oracle:
+        raise RuntimeError("exemples/oracle-score.json n'est pas à jour. Relancer : python3 outils/scorer.py --ecrire-exemples")
     resultat = banc.resultat_score(exemple["outil"], exemple["date"], exemple["predictions"], cas)
     if resultat["erreurs"]:
         raise RuntimeError("exemple de prédiction illisible : " + "; ".join(resultat["erreurs"]))
@@ -769,6 +782,8 @@ def rendre() -> str:
         "@@CAS_NON_TRANCHES@@": html_cas_non_tranches(cas),
         "@@DATE_COUVERTURE@@": echapper(date_couverture(cas)),
         "@@DATE_TEXTE_IMAGE@@": echapper(date_fr(image["relecture"])),
+        "@@FRAICHEUR@@": echapper(banc.phrase_fraicheur()),
+        "@@ORACLE@@": json.dumps(oracle, ensure_ascii=False),
         "@@TESTS@@": str(compte["tests"]),
         "@@CRITERES@@": str(compte["criteres"]),
         "@@NB_THEMES@@": str(len(themes)),
@@ -789,6 +804,12 @@ def rendre() -> str:
     verifier_liens(html, par_id)
     verifier_cartes(html, cas)
     verifier_mots(html)
+    if html.count("non citable") < len(file):
+        raise RuntimeError("un brouillon de la file n'est pas marqué non citable")
+    if "CONTRIBUTING.md" not in html or "site/methode.html" not in html:
+        raise RuntimeError("la vitrine ne mène pas au guide ou à la carte")
+    if "outils/score-page.js" not in html or "oracle-score" not in html:
+        raise RuntimeError("la page ne charge pas le calcul local")
     return html
 
 
