@@ -2,6 +2,12 @@
 
 Une contribution utile est un cas, un protocole, ou un correctif des outils. Le plus court chemin est un cas.
 
+## La branche main
+
+Une modification de `main` entre par une pull request. Le propriétaire du dépôt la fusionne. Un push direct, un force-push et la suppression de `main` sont refusés. La fusion attend le contrôle `valider`, sur une branche à jour de `main`.
+
+Une contribution extérieure part d'un fork. Elle ne donne pas le droit d'écriture sur ce dépôt.
+
 ## Un cas
 
 1. Choisir un test du RGAA 4.1.2 dans `referentiel/rgaa-4.1.2/index.json`.
