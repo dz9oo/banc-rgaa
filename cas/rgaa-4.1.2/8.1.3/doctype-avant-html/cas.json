@@ -1,0 +1,24 @@
+{
+  "id": "8.1.3/doctype-avant-html",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.1.3",
+  "titre": "Doctype placé avant l'élément html",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La déclaration <!DOCTYPE html> est le premier nœud du fichier, avant la balise html. Le test 8.1.3 demande cette place pour une page qui possède un doctype. Le test est tenu pour conforme. La validité du type est le test 8.1.2. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.1.3",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Regarder le rendu du navigateur pour décider de la place du doctype dans le source."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

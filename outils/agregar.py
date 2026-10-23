@@ -11,7 +11,8 @@ import banc
 
 def ecrire() -> None:
     ech = banc.lire_json(banc.CHEMIN_ECHANTILLON)
-    calcul = banc.agreger(ech, banc.charger_index())
+    revus = {entree["id"] for entree in banc.charger_cas() if entree["statut"] == "revu"}
+    calcul = banc.agreger(ech, banc.charger_index(), revus)
     ech["criteres"] = calcul["criteres"]
     ech["taux"] = calcul["taux"]
     ech["taux_motif"] = calcul["taux_motif"]
@@ -99,6 +100,19 @@ def auto_test() -> int:
     calcul = banc.agreger(mixte, index)
     if calcul["taux"] != 0:
         return _echec("un critère non applicable ne devrait pas entrer dans le taux")
+    en_attente = ech(
+        [
+            {"page": "a", "test": "2.1.1", "verdict": "conforme", "cas": "brouillon"},
+            {"page": "b", "test": "2.1.1", "verdict": "conforme", "cas": "brouillon"},
+        ],
+        ["2.1"],
+    )
+    calcul = banc.agreger(en_attente, index, {"revu-seulement"})
+    if calcul["taux"] is not None or "2.1" not in calcul["taux_motif"]:
+        return _echec("un relevé qui cite un cas non revu devrait laisser le critère ouvert")
+    calcul = banc.agreger(en_attente, index, {"brouillon"})
+    if calcul["taux"] != 100:
+        return _echec("un relevé dont le cas est revu devrait couvrir le critère")
     print("Agrégation : ok.")
     return 0
 

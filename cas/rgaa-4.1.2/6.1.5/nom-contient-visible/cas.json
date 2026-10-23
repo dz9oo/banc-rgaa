@@ -1,0 +1,30 @@
+{
+  "id": "6.1.5/nom-contient-visible",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.5",
+  "titre": "Le nom accessible reprend l'intitulé",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le lien affiche « Mentions légales » et ne porte ni aria-label ni aria-labelledby. Le nom accessible est ce texte visible, qui contient l'intitulé visible. Le test 6.1.5 est tenu pour conforme. Le caractère explicite de l'intitulé est le test 6.1.1. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.5",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "a",
+      "note": "Sans aria-label"
+    }
+  ],
+  "pieges": [
+    "Accepter un aria-label qui remplace l'intitulé visible au lieu de le contenir."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

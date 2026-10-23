@@ -401,8 +401,18 @@ def _verdict_page(verdicts: list[str]) -> str:
     return "conforme"
 
 
-def agreger(echantillon: dict, index: dict) -> dict:
-    """Calcule la grille à partir des relevés. Ne lit aucun HTML."""
+def agreger(echantillon: dict, index: dict, cas_revus: set[str] | None = None) -> dict:
+    """Calcule la grille à partir des relevés. Ne lit aucun HTML.
+
+    Si cas_revus est fourni, un relevé ne couvre le test que lorsque son cas y figure.
+    None conserve le décompte de tous les relevés, utilisé par les essais internes.
+    """
+
+    def couvre(releve: dict) -> bool:
+        if cas_revus is None:
+            return True
+        return releve.get("cas") in cas_revus
+
     pages = [page["id"] for page in echantillon["pages"]]
     meta = {page["id"]: page for page in echantillon["pages"]}
     connus = tests_par_id(index)
@@ -415,7 +425,7 @@ def agreger(echantillon: dict, index: dict) -> dict:
             pages_couvertes = {
                 releve["page"]
                 for releve in echantillon["releves"]
-                if releve["test"] == test["id"]
+                if releve["test"] == test["id"] and couvre(releve)
             }
             if pages_couvertes != set(pages):
                 manques.append(test["id"])
@@ -429,6 +439,7 @@ def agreger(echantillon: dict, index: dict) -> dict:
                 if releve["page"] == page
                 and releve["test"] in connus
                 and connus[releve["test"]]["critere"] == critere
+                and couvre(releve)
             ]
             verdicts_pages[page][critere] = _verdict_page(locaux)
     groupes: dict[str, list[str]] = {}
@@ -507,6 +518,7 @@ def erreurs_echantillon(chemin: Path, index: dict) -> list[str]:
     erreurs: list[str] = []
     ech = lire_json(chemin)
     cas = {entree["id"]: entree for entree in charger_cas()}
+    revus = {identifiant for identifiant, entree in cas.items() if entree["statut"] == "revu"}
     connus = tests_par_id(index)
     pages = {page["id"] for page in ech["pages"]}
     dossier = chemin.parent
@@ -533,14 +545,12 @@ def erreurs_echantillon(chemin: Path, index: dict) -> list[str]:
         if source is None:
             _ajouter(erreurs, f"{ech['id']} : cas absent {releve['cas']}")
             continue
-        if source["statut"] != "revu":
-            _ajouter(erreurs, f"{ech['id']} : le cas {releve['cas']} n'est pas revu")
         if source["test"] != releve["test"] or source["verdict"] != releve["verdict"]:
             _ajouter(erreurs, f"{ech['id']} : le relevé {releve['cas']} ne reprend pas le cas")
     for critere in ech["perimetre"]:
         if not tests_du_critere(index, critere):
             _ajouter(erreurs, f"{ech['id']} : critère inconnu {critere}")
-    calcul = agreger(ech, index)
+    calcul = agreger(ech, index, revus)
     for clef in ("criteres", "taux", "taux_motif"):
         if ech.get(clef) != calcul[clef]:
             _ajouter(erreurs, f"{ech['id']} : {clef} ne correspond pas au calcul")

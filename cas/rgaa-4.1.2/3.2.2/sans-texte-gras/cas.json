@@ -1,0 +1,30 @@
+{
+  "id": "3.2.2/sans-texte-gras",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.2",
+  "titre": "Page sans petit texte en gras",
+  "verdict": "non_applicable",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le texte courant fait 16 px en graisse 400. Le titre fait 32 px en graisse 700. Le test 3.2.2 vise le texte et le texte en image en gras dont la taille restituée est inférieure à 18,5 px, avec un seuil de 4,5:1. Aucun texte n'est dans ce cas : le test est non applicable. Le titre en gras relève du test 3.2.4. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.2",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "h1",
+      "note": "Gras de 32 px, hors du test"
+    }
+  ],
+  "pieges": [
+    "Classer un titre de 32 px en gras dans le seuil du petit texte gras."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

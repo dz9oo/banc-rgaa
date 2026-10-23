@@ -1,0 +1,24 @@
+{
+  "id": "3.2.3/sans-grand-texte",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.3",
+  "titre": "Page sans texte large sans graisse",
+  "verdict": "non_applicable",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le texte courant fait 16 px en graisse 400. Le titre fait 32 px en graisse 700. Le test 3.2.3 vise le texte et le texte en image sans graisse dont la taille restituée atteint 24 px. Aucun texte n'est dans ce cas, et il n'y a pas de texte en image : le test est non applicable. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.3",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Faire relever un titre en gras du test prévu pour le texte sans graisse."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

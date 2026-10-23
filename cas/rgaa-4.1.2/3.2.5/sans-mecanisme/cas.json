@@ -1,0 +1,24 @@
+{
+  "id": "3.2.5/sans-mecanisme",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.5",
+  "titre": "Page sans mécanisme de contraste",
+  "verdict": "non_applicable",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page affiche son texte avec des couleurs fixées dans la feuille de style. Aucun contrôle ne permet à la personne de remplacer ces couleurs par un contraste conforme. Le test 3.2.5 juge le contraste à l'intérieur de ce mécanisme. Le mécanisme est absent : le test est non applicable. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.5",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Conclure non conforme alors que l'élément visé par le test est absent de la page."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

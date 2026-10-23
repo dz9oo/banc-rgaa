@@ -1,0 +1,24 @@
+{
+  "id": "1.3.1/sans-image",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.3.1",
+  "titre": "Page sans image porteuse d'information",
+  "verdict": "non_applicable",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page ne contient aucune balise img ni aucun role img. Le test 1.3.1 juge la pertinence d'une alternative déjà présente sur une image porteuse d'information. Aucune image de ce type n'est là : le test est non applicable. L'absence d'alternative, lorsqu'une image existe, est un autre test. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.1",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Juger la pertinence d'une alternative qui n'existe pas parce que l'image n'existe pas."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

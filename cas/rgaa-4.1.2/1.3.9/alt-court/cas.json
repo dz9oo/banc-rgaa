@@ -1,0 +1,31 @@
+{
+  "id": "1.3.9/alt-court",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.3.9",
+  "titre": "Alternative courte du compteur",
+  "verdict": "conforme",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "L'image affiche le nombre 12. L'alternative est « 12 places disponibles ». Elle compte 21 caractères, sous les 80 que le glossaire recommande pour une alternative courte, et elle ne sert pas de description détaillée. Le test 1.3.9 est tenu pour conforme. La pertinence de cette alternative est le test 1.3.1. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.9",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html",
+    "places.svg"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "img",
+      "note": "Alternative de 21 caractères"
+    }
+  ],
+  "pieges": [
+    "Compter une alternative pertinente comme conforme à 1.3.9 lorsqu'elle dépasse la longueur recommandée."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

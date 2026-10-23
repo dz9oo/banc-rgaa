@@ -94,6 +94,202 @@
       "cas": "11.9.2/sans-bouton"
     },
     {
+      "page": "accueil",
+      "test": "1.2.1",
+      "verdict": "non_applicable",
+      "cas": "1.2.1/sans-image",
+      "note": "Aucune balise img. Le test 1.2.1 n'a pas d'image décorative à juger."
+    },
+    {
+      "page": "accueil",
+      "test": "1.2.2",
+      "verdict": "non_applicable",
+      "cas": "1.2.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.2.3",
+      "verdict": "non_applicable",
+      "cas": "1.2.3/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.2.4",
+      "verdict": "non_applicable",
+      "cas": "1.2.4/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.2.5",
+      "verdict": "non_applicable",
+      "cas": "1.2.5/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.2.6",
+      "verdict": "non_applicable",
+      "cas": "1.2.6/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.1",
+      "verdict": "non_applicable",
+      "cas": "1.3.1/sans-image",
+      "note": "Aucune image porteuse d'information. Le test 1.3.1 n'a pas d'alternative à juger."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.2",
+      "verdict": "non_applicable",
+      "cas": "1.3.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.3",
+      "verdict": "non_applicable",
+      "cas": "1.3.3/sans-bouton-image",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.4",
+      "verdict": "non_applicable",
+      "cas": "1.3.4/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.5",
+      "verdict": "non_applicable",
+      "cas": "1.3.5/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.6",
+      "verdict": "non_applicable",
+      "cas": "1.3.6/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.7",
+      "verdict": "non_applicable",
+      "cas": "1.3.7/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.8",
+      "verdict": "non_applicable",
+      "cas": "1.3.8/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "accueil",
+      "test": "1.3.9",
+      "verdict": "non_applicable",
+      "cas": "1.3.9/sans-image",
+      "note": "Aucune image porteuse d'information dotée d'une alternative."
+    },
+    {
+      "page": "accueil",
+      "test": "3.2.1",
+      "verdict": "conforme",
+      "cas": "3.2.1/contraste-suffisant",
+      "note": "Le texte de moins de 24 px est en graisse 400, #1b1b1b sur #ffffff, rapport 17,22:1. Le cas cité mesure la même situation avec #333333. Aucun texte en image n'est en dessous de 24 px."
+    },
+    {
+      "page": "accueil",
+      "test": "3.2.2",
+      "verdict": "non_applicable",
+      "cas": "3.2.2/sans-texte-gras",
+      "note": "Aucun texte en gras de moins de 18,5 px. Le seul gras est le titre, à 32 px."
+    },
+    {
+      "page": "accueil",
+      "test": "3.2.3",
+      "verdict": "non_applicable",
+      "cas": "3.2.3/sans-grand-texte",
+      "note": "Aucun texte sans graisse d'au moins 24 px. Le titre est en gras à 32 px et relève du test 3.2.4."
+    },
+    {
+      "page": "accueil",
+      "test": "3.2.4",
+      "verdict": "conforme",
+      "cas": "3.2.4/contraste-suffisant",
+      "note": "Le titre h1 fait 32 px, graisse 700, #1b1b1b sur #ffffff, rapport 17,22:1. Le « 12 » de l'image, lorsqu'il est présent, n'est pas en gras."
+    },
+    {
+      "page": "accueil",
+      "test": "3.2.5",
+      "verdict": "non_applicable",
+      "cas": "3.2.5/sans-mecanisme",
+      "note": "Aucun mécanisme ne permet de remplacer les couleurs par un contraste conforme."
+    },
+    {
+      "page": "accueil",
+      "test": "6.1.1",
+      "verdict": "conforme",
+      "cas": "6.1.1/mentions-legales",
+      "note": "Chaque lien texte nomme sa destination : Accueil, Horaires d'ouverture, Contact, Mentions légales."
+    },
+    {
+      "page": "accueil",
+      "test": "6.1.2",
+      "verdict": "non_applicable",
+      "cas": "6.1.2/sans-lien-image",
+      "note": "Aucun lien image. Les liens ne contiennent qu'un texte."
+    },
+    {
+      "page": "accueil",
+      "test": "6.1.3",
+      "verdict": "non_applicable",
+      "cas": "6.1.3/sans-lien-composite",
+      "note": "Aucun lien ne mêle un texte et une image."
+    },
+    {
+      "page": "accueil",
+      "test": "6.1.4",
+      "verdict": "non_applicable",
+      "cas": "6.1.4/sans-lien-svg",
+      "note": "Aucun lien dont le contenu est un svg."
+    },
+    {
+      "page": "accueil",
+      "test": "6.1.5",
+      "verdict": "conforme",
+      "cas": "6.1.5/nom-contient-visible",
+      "note": "Chaque lien a son intitulé pour seul contenu, sans aria-label ni aria-labelledby. Le nom accessible contient l'intitulé visible."
+    },
+    {
+      "page": "accueil",
+      "test": "8.1.1",
+      "verdict": "conforme",
+      "cas": "8.1.1/doctype-html",
+      "note": "Le fichier commence par <!DOCTYPE html>, avant l'élément html."
+    },
+    {
+      "page": "accueil",
+      "test": "8.1.2",
+      "verdict": "conforme",
+      "cas": "8.1.2/doctype-html",
+      "note": "La déclaration <!DOCTYPE html> est un type de document HTML valide."
+    },
+    {
+      "page": "accueil",
+      "test": "8.1.3",
+      "verdict": "conforme",
+      "cas": "8.1.3/doctype-avant-html",
+      "note": "La déclaration de type est placée avant la balise html."
+    },
+    {
       "page": "article",
       "test": "6.2.1",
       "verdict": "conforme",
@@ -139,6 +335,202 @@
       "test": "11.9.2",
       "verdict": "non_applicable",
       "cas": "11.9.2/sans-bouton"
+    },
+    {
+      "page": "article",
+      "test": "1.2.1",
+      "verdict": "conforme",
+      "cas": "1.2.1/alt-vide",
+      "note": "Le filet a un alt vide, sans title ni nom ARIA. L'image des places est informative et ne relève pas de ce test."
+    },
+    {
+      "page": "article",
+      "test": "1.2.2",
+      "verdict": "non_applicable",
+      "cas": "1.2.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.2.3",
+      "verdict": "non_applicable",
+      "cas": "1.2.3/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.2.4",
+      "verdict": "non_applicable",
+      "cas": "1.2.4/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.2.5",
+      "verdict": "non_applicable",
+      "cas": "1.2.5/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.2.6",
+      "verdict": "non_applicable",
+      "cas": "1.2.6/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.1",
+      "verdict": "conforme",
+      "cas": "1.3.1/alt-pertinent",
+      "note": "L'alternative « 12 places disponibles » reprend le nombre affiché dans l'image. Le filet décoratif n'a pas d'alternative à juger ici."
+    },
+    {
+      "page": "article",
+      "test": "1.3.2",
+      "verdict": "non_applicable",
+      "cas": "1.3.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.3",
+      "verdict": "non_applicable",
+      "cas": "1.3.3/sans-bouton-image",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.4",
+      "verdict": "non_applicable",
+      "cas": "1.3.4/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.5",
+      "verdict": "non_applicable",
+      "cas": "1.3.5/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.6",
+      "verdict": "non_applicable",
+      "cas": "1.3.6/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.7",
+      "verdict": "non_applicable",
+      "cas": "1.3.7/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.8",
+      "verdict": "non_applicable",
+      "cas": "1.3.8/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "article",
+      "test": "1.3.9",
+      "verdict": "conforme",
+      "cas": "1.3.9/alt-court",
+      "note": "L'alternative « 12 places disponibles » compte 21 caractères. Elle reste courte et ne développe pas une description détaillée."
+    },
+    {
+      "page": "article",
+      "test": "3.2.1",
+      "verdict": "conforme",
+      "cas": "3.2.1/contraste-suffisant",
+      "note": "Le texte de moins de 24 px est en graisse 400, #1b1b1b sur #ffffff, rapport 17,22:1. Le cas cité mesure la même situation avec #333333. Aucun texte en image n'est en dessous de 24 px."
+    },
+    {
+      "page": "article",
+      "test": "3.2.2",
+      "verdict": "non_applicable",
+      "cas": "3.2.2/sans-texte-gras",
+      "note": "Aucun texte en gras de moins de 18,5 px. Le seul gras est le titre, à 32 px."
+    },
+    {
+      "page": "article",
+      "test": "3.2.3",
+      "verdict": "conforme",
+      "cas": "3.2.3/contraste-suffisant",
+      "note": "Le « 12 » de places.svg fait 32 px, graisse normale, #1b1b1b sur #ffffff, rapport 17,22:1. Le cas cité déclare les mêmes taille, graisse et couleurs. Le titre est en gras et relève du test 3.2.4."
+    },
+    {
+      "page": "article",
+      "test": "3.2.4",
+      "verdict": "conforme",
+      "cas": "3.2.4/contraste-suffisant",
+      "note": "Le titre h1 fait 32 px, graisse 700, #1b1b1b sur #ffffff, rapport 17,22:1. Le « 12 » de l'image, lorsqu'il est présent, n'est pas en gras."
+    },
+    {
+      "page": "article",
+      "test": "3.2.5",
+      "verdict": "non_applicable",
+      "cas": "3.2.5/sans-mecanisme",
+      "note": "Aucun mécanisme ne permet de remplacer les couleurs par un contraste conforme."
+    },
+    {
+      "page": "article",
+      "test": "6.1.1",
+      "verdict": "conforme",
+      "cas": "6.1.1/mentions-legales",
+      "note": "Chaque lien texte nomme sa destination : Accueil, Horaires d'ouverture, Contact, Mentions légales."
+    },
+    {
+      "page": "article",
+      "test": "6.1.2",
+      "verdict": "non_applicable",
+      "cas": "6.1.2/sans-lien-image",
+      "note": "Aucun lien image. Les liens ne contiennent qu'un texte."
+    },
+    {
+      "page": "article",
+      "test": "6.1.3",
+      "verdict": "non_applicable",
+      "cas": "6.1.3/sans-lien-composite",
+      "note": "Aucun lien ne mêle un texte et une image."
+    },
+    {
+      "page": "article",
+      "test": "6.1.4",
+      "verdict": "non_applicable",
+      "cas": "6.1.4/sans-lien-svg",
+      "note": "Aucun lien dont le contenu est un svg."
+    },
+    {
+      "page": "article",
+      "test": "6.1.5",
+      "verdict": "conforme",
+      "cas": "6.1.5/nom-contient-visible",
+      "note": "Chaque lien a son intitulé pour seul contenu, sans aria-label ni aria-labelledby. Le nom accessible contient l'intitulé visible."
+    },
+    {
+      "page": "article",
+      "test": "8.1.1",
+      "verdict": "conforme",
+      "cas": "8.1.1/doctype-html",
+      "note": "Le fichier commence par <!DOCTYPE html>, avant l'élément html."
+    },
+    {
+      "page": "article",
+      "test": "8.1.2",
+      "verdict": "conforme",
+      "cas": "8.1.2/doctype-html",
+      "note": "La déclaration <!DOCTYPE html> est un type de document HTML valide."
+    },
+    {
+      "page": "article",
+      "test": "8.1.3",
+      "verdict": "conforme",
+      "cas": "8.1.3/doctype-avant-html",
+      "note": "La déclaration de type est placée avant la balise html."
     },
     {
       "page": "contact",
@@ -188,6 +580,202 @@
       "cas": "11.9.2/nom-contient-visible"
     },
     {
+      "page": "contact",
+      "test": "1.2.1",
+      "verdict": "non_applicable",
+      "cas": "1.2.1/sans-image",
+      "note": "Aucune balise img. Le test 1.2.1 n'a pas d'image décorative à juger."
+    },
+    {
+      "page": "contact",
+      "test": "1.2.2",
+      "verdict": "non_applicable",
+      "cas": "1.2.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.2.3",
+      "verdict": "non_applicable",
+      "cas": "1.2.3/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.2.4",
+      "verdict": "non_applicable",
+      "cas": "1.2.4/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.2.5",
+      "verdict": "non_applicable",
+      "cas": "1.2.5/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.2.6",
+      "verdict": "non_applicable",
+      "cas": "1.2.6/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.1",
+      "verdict": "non_applicable",
+      "cas": "1.3.1/sans-image",
+      "note": "Aucune image porteuse d'information. Le test 1.3.1 n'a pas d'alternative à juger."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.2",
+      "verdict": "non_applicable",
+      "cas": "1.3.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.3",
+      "verdict": "non_applicable",
+      "cas": "1.3.3/sans-bouton-image",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.4",
+      "verdict": "non_applicable",
+      "cas": "1.3.4/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.5",
+      "verdict": "non_applicable",
+      "cas": "1.3.5/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.6",
+      "verdict": "non_applicable",
+      "cas": "1.3.6/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.7",
+      "verdict": "non_applicable",
+      "cas": "1.3.7/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.8",
+      "verdict": "non_applicable",
+      "cas": "1.3.8/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "contact",
+      "test": "1.3.9",
+      "verdict": "non_applicable",
+      "cas": "1.3.9/sans-image",
+      "note": "Aucune image porteuse d'information dotée d'une alternative."
+    },
+    {
+      "page": "contact",
+      "test": "3.2.1",
+      "verdict": "conforme",
+      "cas": "3.2.1/contraste-suffisant",
+      "note": "Le texte de moins de 24 px est en graisse 400, #1b1b1b sur #ffffff, rapport 17,22:1. Le cas cité mesure la même situation avec #333333. Aucun texte en image n'est en dessous de 24 px."
+    },
+    {
+      "page": "contact",
+      "test": "3.2.2",
+      "verdict": "non_applicable",
+      "cas": "3.2.2/sans-texte-gras",
+      "note": "Aucun texte en gras de moins de 18,5 px. Le seul gras est le titre, à 32 px."
+    },
+    {
+      "page": "contact",
+      "test": "3.2.3",
+      "verdict": "non_applicable",
+      "cas": "3.2.3/sans-grand-texte",
+      "note": "Aucun texte sans graisse d'au moins 24 px. Le titre est en gras à 32 px et relève du test 3.2.4."
+    },
+    {
+      "page": "contact",
+      "test": "3.2.4",
+      "verdict": "conforme",
+      "cas": "3.2.4/contraste-suffisant",
+      "note": "Le titre h1 fait 32 px, graisse 700, #1b1b1b sur #ffffff, rapport 17,22:1. Le « 12 » de l'image, lorsqu'il est présent, n'est pas en gras."
+    },
+    {
+      "page": "contact",
+      "test": "3.2.5",
+      "verdict": "non_applicable",
+      "cas": "3.2.5/sans-mecanisme",
+      "note": "Aucun mécanisme ne permet de remplacer les couleurs par un contraste conforme."
+    },
+    {
+      "page": "contact",
+      "test": "6.1.1",
+      "verdict": "conforme",
+      "cas": "6.1.1/mentions-legales",
+      "note": "Chaque lien texte nomme sa destination : Accueil, Horaires d'ouverture, Contact, Mentions légales."
+    },
+    {
+      "page": "contact",
+      "test": "6.1.2",
+      "verdict": "non_applicable",
+      "cas": "6.1.2/sans-lien-image",
+      "note": "Aucun lien image. Les liens ne contiennent qu'un texte."
+    },
+    {
+      "page": "contact",
+      "test": "6.1.3",
+      "verdict": "non_applicable",
+      "cas": "6.1.3/sans-lien-composite",
+      "note": "Aucun lien ne mêle un texte et une image."
+    },
+    {
+      "page": "contact",
+      "test": "6.1.4",
+      "verdict": "non_applicable",
+      "cas": "6.1.4/sans-lien-svg",
+      "note": "Aucun lien dont le contenu est un svg."
+    },
+    {
+      "page": "contact",
+      "test": "6.1.5",
+      "verdict": "conforme",
+      "cas": "6.1.5/nom-contient-visible",
+      "note": "Chaque lien a son intitulé pour seul contenu, sans aria-label ni aria-labelledby. Le nom accessible contient l'intitulé visible."
+    },
+    {
+      "page": "contact",
+      "test": "8.1.1",
+      "verdict": "conforme",
+      "cas": "8.1.1/doctype-html",
+      "note": "Le fichier commence par <!DOCTYPE html>, avant l'élément html."
+    },
+    {
+      "page": "contact",
+      "test": "8.1.2",
+      "verdict": "conforme",
+      "cas": "8.1.2/doctype-html",
+      "note": "La déclaration <!DOCTYPE html> est un type de document HTML valide."
+    },
+    {
+      "page": "contact",
+      "test": "8.1.3",
+      "verdict": "conforme",
+      "cas": "8.1.3/doctype-avant-html",
+      "note": "La déclaration de type est placée avant la balise html."
+    },
+    {
       "page": "mentions",
       "test": "6.2.1",
       "verdict": "conforme",
@@ -233,6 +821,202 @@
       "test": "11.9.2",
       "verdict": "non_applicable",
       "cas": "11.9.2/sans-bouton"
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.1",
+      "verdict": "non_applicable",
+      "cas": "1.2.1/sans-image",
+      "note": "Aucune balise img. Le test 1.2.1 n'a pas d'image décorative à juger."
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.2",
+      "verdict": "non_applicable",
+      "cas": "1.2.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.3",
+      "verdict": "non_applicable",
+      "cas": "1.2.3/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.4",
+      "verdict": "non_applicable",
+      "cas": "1.2.4/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.5",
+      "verdict": "non_applicable",
+      "cas": "1.2.5/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.2.6",
+      "verdict": "non_applicable",
+      "cas": "1.2.6/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.1",
+      "verdict": "non_applicable",
+      "cas": "1.3.1/sans-image",
+      "note": "Aucune image porteuse d'information. Le test 1.3.1 n'a pas d'alternative à juger."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.2",
+      "verdict": "non_applicable",
+      "cas": "1.3.2/sans-zone",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.3",
+      "verdict": "non_applicable",
+      "cas": "1.3.3/sans-bouton-image",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.4",
+      "verdict": "non_applicable",
+      "cas": "1.3.4/sans-objet",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.5",
+      "verdict": "non_applicable",
+      "cas": "1.3.5/sans-embed",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.6",
+      "verdict": "non_applicable",
+      "cas": "1.3.6/sans-svg",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.7",
+      "verdict": "non_applicable",
+      "cas": "1.3.7/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.8",
+      "verdict": "non_applicable",
+      "cas": "1.3.8/sans-canvas",
+      "note": "L'élément visé par le test est absent de la page."
+    },
+    {
+      "page": "mentions",
+      "test": "1.3.9",
+      "verdict": "non_applicable",
+      "cas": "1.3.9/sans-image",
+      "note": "Aucune image porteuse d'information dotée d'une alternative."
+    },
+    {
+      "page": "mentions",
+      "test": "3.2.1",
+      "verdict": "conforme",
+      "cas": "3.2.1/contraste-suffisant",
+      "note": "Le texte de moins de 24 px est en graisse 400, #1b1b1b sur #ffffff, rapport 17,22:1. Le cas cité mesure la même situation avec #333333. Aucun texte en image n'est en dessous de 24 px."
+    },
+    {
+      "page": "mentions",
+      "test": "3.2.2",
+      "verdict": "non_applicable",
+      "cas": "3.2.2/sans-texte-gras",
+      "note": "Aucun texte en gras de moins de 18,5 px. Le seul gras est le titre, à 32 px."
+    },
+    {
+      "page": "mentions",
+      "test": "3.2.3",
+      "verdict": "non_applicable",
+      "cas": "3.2.3/sans-grand-texte",
+      "note": "Aucun texte sans graisse d'au moins 24 px. Le titre est en gras à 32 px et relève du test 3.2.4."
+    },
+    {
+      "page": "mentions",
+      "test": "3.2.4",
+      "verdict": "conforme",
+      "cas": "3.2.4/contraste-suffisant",
+      "note": "Le titre h1 fait 32 px, graisse 700, #1b1b1b sur #ffffff, rapport 17,22:1. Le « 12 » de l'image, lorsqu'il est présent, n'est pas en gras."
+    },
+    {
+      "page": "mentions",
+      "test": "3.2.5",
+      "verdict": "non_applicable",
+      "cas": "3.2.5/sans-mecanisme",
+      "note": "Aucun mécanisme ne permet de remplacer les couleurs par un contraste conforme."
+    },
+    {
+      "page": "mentions",
+      "test": "6.1.1",
+      "verdict": "conforme",
+      "cas": "6.1.1/mentions-legales",
+      "note": "Chaque lien texte nomme sa destination : Accueil, Horaires d'ouverture, Contact, Mentions légales."
+    },
+    {
+      "page": "mentions",
+      "test": "6.1.2",
+      "verdict": "non_applicable",
+      "cas": "6.1.2/sans-lien-image",
+      "note": "Aucun lien image. Les liens ne contiennent qu'un texte."
+    },
+    {
+      "page": "mentions",
+      "test": "6.1.3",
+      "verdict": "non_applicable",
+      "cas": "6.1.3/sans-lien-composite",
+      "note": "Aucun lien ne mêle un texte et une image."
+    },
+    {
+      "page": "mentions",
+      "test": "6.1.4",
+      "verdict": "non_applicable",
+      "cas": "6.1.4/sans-lien-svg",
+      "note": "Aucun lien dont le contenu est un svg."
+    },
+    {
+      "page": "mentions",
+      "test": "6.1.5",
+      "verdict": "conforme",
+      "cas": "6.1.5/nom-contient-visible",
+      "note": "Chaque lien a son intitulé pour seul contenu, sans aria-label ni aria-labelledby. Le nom accessible contient l'intitulé visible."
+    },
+    {
+      "page": "mentions",
+      "test": "8.1.1",
+      "verdict": "conforme",
+      "cas": "8.1.1/doctype-html",
+      "note": "Le fichier commence par <!DOCTYPE html>, avant l'élément html."
+    },
+    {
+      "page": "mentions",
+      "test": "8.1.2",
+      "verdict": "conforme",
+      "cas": "8.1.2/doctype-html",
+      "note": "La déclaration <!DOCTYPE html> est un type de document HTML valide."
+    },
+    {
+      "page": "mentions",
+      "test": "8.1.3",
+      "verdict": "conforme",
+      "cas": "8.1.3/doctype-avant-html",
+      "note": "La déclaration de type est placée avant la balise html."
     }
   ],
   "criteres": [

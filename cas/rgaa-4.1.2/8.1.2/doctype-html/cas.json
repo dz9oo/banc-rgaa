@@ -1,0 +1,24 @@
+{
+  "id": "8.1.2/doctype-html",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "8.1.2",
+  "titre": "Doctype HTML valide",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le document commence par <!DOCTYPE html>. Cette déclaration est un type de document HTML valide. Le test 8.1.2 est tenu pour conforme. La seule présence du doctype est le test 8.1.1, et sa place avant la balise html est le test 8.1.3. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.1.2",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Tenir pour valide un doctype quelconque dès qu'il est placé avant html."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

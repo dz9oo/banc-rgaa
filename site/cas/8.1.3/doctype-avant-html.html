@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doctype placé avant l'élément html</title>
+<style>
+body { margin: 0; background: #fff; color: #1a1a1a; font-family: sans-serif; line-height: 1.5; }
+main { max-width: 42rem; margin: 0 auto; padding: 0 1rem 3rem; }
+nav, footer { max-width: 42rem; margin: 0 auto; padding: 1rem; }
+a { color: #000091; }
+a:focus { outline: 3px solid #000; outline-offset: 2px; }
+code { font-family: ui-monospace, monospace; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; vertical-align: top; border-bottom: 1px solid #4d4d4d; padding: 0.3rem 0.5rem 0.3rem 0; }
+</style>
+</head>
+<body>
+<a href="#contenu">Aller au contenu</a>
+<nav aria-label="Navigation du banc">
+<p>
+<a href="../../index.html">Accueil</a>
+· <a href="../../cas/index.html">Cas</a>
+· <a href="../../protocoles/index.html">Protocoles</a>
+· <a href="../../echantillon.html">Échantillon</a>
+</p>
+</nav>
+<main id="contenu">
+<h1>Doctype placé avant l'élément html</h1>
+<p>Verdict : Conforme. Nature : Déterministe. Statut : Brouillon.</p>
+<dl>
+<dt>Test</dt><dd><a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.1.3">8.1.3</a></dd>
+<dt>Modalités</dt><dd>html</dd>
+</dl>
+<h2>Motif</h2>
+<p>La déclaration &lt;!DOCTYPE html&gt; est le premier nœud du fichier, avant la balise html. Le test 8.1.3 demande cette place pour une page qui possède un doctype. Le test est tenu pour conforme. La validité du type est le test 8.1.2. Le cas reste brouillon et le verdict ne sert pas encore de référence.</p>
+<h2>Pièges</h2><ul>
+<li>Regarder le rendu du navigateur pour décider de la place du doctype dans le source.</li>
+</ul>
+<p><a href="../../../cas/rgaa-4.1.2/8.1.3/doctype-avant-html/page.html">Ouvrir la page du cas</a></p>
+<p><a href="../../protocoles/8.1.3.html">Protocole 8.1.3</a></p>
+</main>
+<footer>
+<p>Banc d'essai communautaire pour le RGAA 4.1.2. Les verdicts revus sont des lectures contributives, reliées à la méthode officielle. Ce site ne signe pas une conformité.</p>
+</footer>
+</body>
+</html>

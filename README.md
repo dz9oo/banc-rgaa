@@ -26,7 +26,7 @@ La méthode reste sur [accessibilite.numerique.gouv.fr](https://accessibilite.nu
 | --- | ---: |
 | Tests du RGAA 4.1.2 | 258 |
 | Critères | 106 |
-| Tests avec un protocole | 13 |
+| Tests avec un protocole | 36 |
 | Cas revus | 33 |
 | Cas déterministes revus | 13 |
 | Cas de pertinence revus | 17 |
@@ -34,7 +34,7 @@ La méthode reste sur [accessibilite.numerique.gouv.fr](https://accessibilite.nu
 | Cas de geste revus | 2 |
 | Cas de restitution revus | 0 |
 | Cas document revus | 0 |
-| Cas brouillons | 1 |
+| Cas brouillons | 28 |
 | Cas revus non tranchés | 2 |
 | Échantillons | 1 |
 | Échantillons avec un taux publié | 0 |
@@ -70,7 +70,7 @@ Le dépôt ne lance pas de modèle. Une sortie de modèle se dépose comme préd
 
 ## Échantillons et taux
 
-Les règles tenues par `outils/agregar.py` sont dans [docs/agregation.md](docs/agregation.md). L'échantillon `vitrine` a un taux vide : des critères applicables n'ont pas encore tous leurs tests. Un taux vide est un résultat, pas un oubli de publication.
+Les règles tenues par `outils/agregar.py` sont dans [docs/agregation.md](docs/agregation.md). L'échantillon `vitrine` a un taux vide : des critères applicables n'ont pas encore tous leurs tests revus. Des relevés citent des cas encore `brouillon` : ils sont enregistrés et ne couvrent pas le test tant que le cas n'est pas `revu`. Un taux vide est un résultat, pas un oubli de publication.
 
 ## Contribuer
 

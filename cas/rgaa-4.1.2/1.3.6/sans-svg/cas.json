@@ -1,0 +1,24 @@
+{
+  "id": "1.3.6/sans-svg",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "1.3.6",
+  "titre": "Page sans image vectorielle informative",
+  "verdict": "non_applicable",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page ne contient aucune balise svg. Le test 1.3.6 juge la pertinence de l'alternative d'une image vectorielle porteuse d'information qui en a déjà une. Une image servie par une balise img ne relève pas de ce test. Le test est non applicable. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.6",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Conclure non conforme alors que l'élément visé par le test est absent de la page."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

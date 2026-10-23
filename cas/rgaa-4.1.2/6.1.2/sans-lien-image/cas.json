@@ -1,0 +1,24 @@
+{
+  "id": "6.1.2/sans-lien-image",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "6.1.2",
+  "titre": "Page sans lien image",
+  "verdict": "non_applicable",
+  "nature": "pertinence",
+  "modalites": [
+    "html"
+  ],
+  "motif": "La page ne contient aucun lien image. Les liens présents n'embarquent qu'un texte. Le test 6.1.2 demande que l'intitulé d'un lien image, seul ou avec son contexte, fasse comprendre la fonction et la destination. Il n'y a pas de lien image : le test est non applicable. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.2",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "pieges": [
+    "Conclure non conforme alors que l'élément visé par le test est absent de la page."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "3.2.3/contraste-suffisant",
+  "referentiel": "RGAA",
+  "version": "4.1.2",
+  "test": "3.2.3",
+  "titre": "Texte large #1b1b1b sur fond blanc",
+  "verdict": "conforme",
+  "nature": "deterministe",
+  "modalites": [
+    "html"
+  ],
+  "motif": "Le seul texte fait 32 px, graisse 400, couleur #1b1b1b sur fond #ffffff déclaré sur le même élément. Le rapport est 17,22:1, au-dessus de 3:1. Il n'y a pas d'autre texte sans graisse d'au moins 24 px. Le test 3.2.3 est tenu pour conforme. Le texte de moins de 24 px relève du test 3.2.1, le gras du test 3.2.4. Le cas reste brouillon et le verdict ne sert pas encore de référence.",
+  "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.3",
+  "statut": "brouillon",
+  "fichiers": [
+    "page.html"
+  ],
+  "licence": "etalab-2.0",
+  "origine": "original",
+  "cibles": [
+    {
+      "selecteur": "p",
+      "note": "32 px, graisse 400"
+    }
+  ],
+  "pieges": [
+    "Appliquer le seuil de 4,5:1 à un texte sans graisse déjà assez grand pour le seuil de 3:1."
+  ],
+  "note": "Proposé pour les relevés de l'échantillon vitrine. Le verdict ne compte pas tant que le cas n'est pas revu."
+}

@@ -103,7 +103,7 @@
       "intitule": "Chaque zone non cliquable (balise <area> sans attribut href) de décoration, vérifie-t-elle une de ces conditions ?",
       "critere_intitule": "Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.2",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.2.2.md"
     },
     {
       "id": "1.2.3",
@@ -113,7 +113,7 @@
       "intitule": "Chaque image objet (balise <object> avec l’attribut type=\"image/…\") de décoration, sans légende, vérifie-t-elle ces conditions ?",
       "critere_intitule": "Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.3",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.2.3.md"
     },
     {
       "id": "1.2.4",
@@ -123,7 +123,7 @@
       "intitule": "Chaque image vectorielle (balise <svg>) de décoration, sans légende, vérifie-t-elle ces conditions ?",
       "critere_intitule": "Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.4",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.2.4.md"
     },
     {
       "id": "1.2.5",
@@ -133,7 +133,7 @@
       "intitule": "Chaque image bitmap (balise <canvas>) de décoration, sans légende, vérifie-t-elle ces conditions ?",
       "critere_intitule": "Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.5",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.2.5.md"
     },
     {
       "id": "1.2.6",
@@ -143,7 +143,7 @@
       "intitule": "Chaque image embarquée (balise <embed> avec l’attribut type=\"image/…\") de décoration, sans légende, vérifie-t-elle ces conditions ?",
       "critere_intitule": "Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.2.6",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.2.6.md"
     },
     {
       "id": "1.3.1",
@@ -163,7 +163,7 @@
       "intitule": "Pour chaque zone (balise <area>) d’une image réactive porteuse d’information, ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.2",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.2.md"
     },
     {
       "id": "1.3.3",
@@ -173,7 +173,7 @@
       "intitule": "Pour chaque bouton de type image (balise <input> avec l’attribut type=\"image\"), ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.3",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.3.md"
     },
     {
       "id": "1.3.4",
@@ -183,7 +183,7 @@
       "intitule": "Pour chaque image objet (balise <object> avec l’attribut type=\"image/…\") porteuse d’information, ayant une alternative textuelle ou un contenu alternatif, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.4",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.4.md"
     },
     {
       "id": "1.3.5",
@@ -193,7 +193,7 @@
       "intitule": "Pour chaque image embarquée (balise <embed> avec l’attribut type=\"image/…\") porteuse d’information, ayant une alternative textuelle ou un contenu alternatif, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.5",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.5.md"
     },
     {
       "id": "1.3.6",
@@ -203,7 +203,7 @@
       "intitule": "Pour chaque image vectorielle (balise <svg>) porteuse d’information, ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.6",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.6.md"
     },
     {
       "id": "1.3.7",
@@ -213,7 +213,7 @@
       "intitule": "Pour chaque image bitmap (balise <canvas>) porteuse d’information, ayant une alternative textuelle ou un contenu alternatif, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.7",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.7.md"
     },
     {
       "id": "1.3.8",
@@ -223,7 +223,7 @@
       "intitule": "Pour chaque image bitmap (balise <canvas>) porteuse d’information et ayant un contenu alternatif entre <canvas> et </canvas>, ce contenu alternatif est-il correctement restitué par les technologies d’assistance ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.8",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.8.md"
     },
     {
       "id": "1.3.9",
@@ -233,7 +233,7 @@
       "intitule": "Pour chaque image porteuse d’information et ayant une alternative textuelle, l’alternative textuelle est-elle courte et concise (hors cas particuliers) ?",
       "critere_intitule": "Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.3.9",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/1.3.9.md"
     },
     {
       "id": "1.4.1",
@@ -693,7 +693,7 @@
       "intitule": "Dans chaque page web, le texte et le texte en image en gras d’une taille restituée inférieure à 18,5px vérifient-ils une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.2",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/3.2.2.md"
     },
     {
       "id": "3.2.3",
@@ -703,7 +703,7 @@
       "intitule": "Dans chaque page web, le texte et le texte en image sans effet de graisse d’une taille restituée supérieure ou égale à 24px vérifient-ils une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.3",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/3.2.3.md"
     },
     {
       "id": "3.2.4",
@@ -713,7 +713,7 @@
       "intitule": "Dans chaque page web, le texte et le texte en image en gras d’une taille restituée supérieure ou égale à 18,5px vérifient-ils une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.4",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/3.2.4.md"
     },
     {
       "id": "3.2.5",
@@ -723,7 +723,7 @@
       "intitule": "Dans le mécanisme qui permet d’afficher un rapport de contraste conforme, le rapport de contraste entre le texte et la couleur d’arrière-plan est-il suffisamment élevé ?",
       "critere_intitule": "Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2.5",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/3.2.5.md"
     },
     {
       "id": "3.3.1",
@@ -1183,7 +1183,7 @@
       "intitule": "Chaque lien image vérifie-t-il une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Chaque lien est-il explicite (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.2",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/6.1.2.md"
     },
     {
       "id": "6.1.3",
@@ -1193,7 +1193,7 @@
       "intitule": "Chaque lien composite vérifie-t-il une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Chaque lien est-il explicite (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.3",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/6.1.3.md"
     },
     {
       "id": "6.1.4",
@@ -1203,7 +1203,7 @@
       "intitule": "Chaque lien SVG vérifie-t-il une de ces conditions (hors cas particuliers) ?",
       "critere_intitule": "Chaque lien est-il explicite (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.4",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/6.1.4.md"
     },
     {
       "id": "6.1.5",
@@ -1213,7 +1213,7 @@
       "intitule": "Pour chaque lien ayant un intitulé visible, le nom accessible du lien contient-il au moins l’intitulé visible (hors cas particuliers) ?",
       "critere_intitule": "Chaque lien est-il explicite (hors cas particuliers) ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#6.1.5",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/6.1.5.md"
     },
     {
       "id": "6.2.1",
@@ -1353,7 +1353,7 @@
       "intitule": "Pour chaque page web, le type de document (balise doctype) est-il valide ?",
       "critere_intitule": "Chaque page web est-elle définie par un type de document ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.1.2",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/8.1.2.md"
     },
     {
       "id": "8.1.3",
@@ -1363,7 +1363,7 @@
       "intitule": "Pour chaque page web possédant une déclaration de type de document, celle-ci est-elle située avant la balise <html> dans le code source ?",
       "critere_intitule": "Chaque page web est-elle définie par un type de document ?",
       "methode": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#8.1.3",
-      "protocole": null
+      "protocole": "protocoles/rgaa-4.1.2/8.1.3.md"
     },
     {
       "id": "8.2.1",
